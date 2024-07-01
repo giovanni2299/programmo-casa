@@ -27,8 +27,9 @@ class ApartmentController extends Controller
         return view('admin.apartments.show', compact('apartment'));
     }
 
-    public function edit(){
+    public function edit(Apartment $apartment){
         
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     public function update(){
