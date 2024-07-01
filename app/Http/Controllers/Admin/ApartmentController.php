@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
@@ -16,7 +17,9 @@ class ApartmentController extends Controller
     }
 
     public function create(){
-        return view('admin.apartments.create');
+        $services = Service::all();
+
+        return view('admin.apartments.create', compact('services'));
     }
 
     public function store(Request $request){
@@ -24,16 +27,25 @@ class ApartmentController extends Controller
 
         $new_apartment = Apartment::create($form_data);
 
+        if($request->has('services')){
+            $new_apartment->services()->attach($request->services);
+        }
+
         return to_route('admin.apartments.show', $new_apartment);
     }
 
     public function show(Apartment $apartment){
+
+        $apartment->load(['services', 'services.apartments']);
+
         return view('admin.apartments.show', compact('apartment'));
     }
 
     public function edit(Apartment $apartment){
+
+        $services = Service::orderBy('name', 'asc')->get();
         
-        return view('admin.apartments.edit', compact('apartment'));
+        return view('admin.apartments.edit', compact('apartment','services'));
     }
 
     public function update(Request $request, Apartment $apartment){
