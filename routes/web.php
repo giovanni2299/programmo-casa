@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\SponsorshipController;
-=======
 use App\Http\Controllers\Admin\ApartmentController;
->>>>>>> giovanni
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
