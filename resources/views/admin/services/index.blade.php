@@ -15,7 +15,9 @@
           <div class="col-2 p-2">
             <div class="card p-2">
               <div class="card-text">
-                {{ $service->name }}
+                <a href="{{ route('admin.services.show', $service) }}">
+                  {{ $service->name }}
+                </a>
               </div>
               <div class="card-btn">
                 <a class="btn btn-secondary text-white" href="">MODIFICA</a>
@@ -26,6 +28,5 @@
         @endforeach
       </div>
     </div>
-
   </section>
 @endsection
