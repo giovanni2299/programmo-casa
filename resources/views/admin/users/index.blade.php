@@ -27,7 +27,7 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td><a class="btn btn-primary" href="{{route('admin.users.edit', $user)}}">Modifica</a></td>
+            <td><a class="btn btn-secondary" href="{{route('admin.users.edit', $user)}}">Modifica</a></td>
             {{-- <td><a href="{{ route('admin.users.edit') }}" title="Vai alla pagina di modifica utente">Modifica</a></td> --}}
           </tr>
         @endforeach
