@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\Admin\ApartmentController;
-=======
 use App\Http\Controllers\Admin\ServiceController;
->>>>>>> 2236ae0cb41c7953b89832075ebd36e157e19430
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
