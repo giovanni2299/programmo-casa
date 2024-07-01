@@ -26,7 +26,7 @@ Route::middleware(['auth','verified'])->name('admin.')->prefix('admin')->group(f
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::resource('sponsorship',SponsorshipController::class);
+    Route::resource('sponsorships',SponsorshipController::class);
 });
 
 Route::middleware('auth')->group(function () {

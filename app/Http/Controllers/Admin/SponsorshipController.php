@@ -13,7 +13,9 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        $sponsorships = Sponsorship::all();
+
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
@@ -37,7 +39,7 @@ class SponsorshipController extends Controller
      */
     public function show(Sponsorship $sponsorship)
     {
-        //
+        return view('admin.sponsorships.show', compact('sponsorship'));
     }
 
     /**
