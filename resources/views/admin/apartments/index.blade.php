@@ -8,8 +8,13 @@
             qui ci va lo slider
         </div>
     </div>
+</div>
     <div class="container">
-        <div class="row gx-3 gy-3">
+
+        <a class="btn btn-primary mb-3" href="{{route('admin.apartments.create')}}"> crea un unovo appartamento</a>
+
+
+        <div class="row gx-3 gy-3 text-center">
             @foreach ($apartments as $apartment)
             <div class="col-12 col-lg-6">
                 <div class="card h-100">
@@ -29,7 +34,7 @@
                 
             @endforeach
         </div>
-    </div>
+    
 
 </div>
 @endsection

@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
+<div class="container p-3">
+    <div>
+        <a class="btn btn-primary" href="{{route('admin.apartments.edit',$apartment)}}"> Modifica Appartamento</a>
+
+    </div>
+    <div class="row mt-3 mb-3">
         <div class="col 6">
             <h1>
                 {{$apartment->title_apartment}}
@@ -20,10 +24,12 @@
         </div>
         <div class="description_container mb-3 p-3">
             <div class="mb-2">
-
+                <h5>
+                    Descrizione:
+                </h5>
                 {{$apartment->description}}
             </div>
-            <div>
+            <div class="mb-2">
                 <h5>
                     N° Stanze:
 
@@ -34,7 +40,7 @@
                 </p>
 
             </div>
-            <div>
+            <div class="mb-2">
                 <h5>
 
                     N° Letti:
@@ -44,7 +50,7 @@
                     {{$apartment->beds}}
                 </p>
             </div>
-            <div>
+            <div class="mb-2">
                 <h5>
                     N° bagni:
 
@@ -56,7 +62,7 @@
 
             </div>
 
-            <div>
+            <div class="mb-2">
                 <h5>
                     M²:
 
