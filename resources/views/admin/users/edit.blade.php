@@ -11,9 +11,11 @@
     <form action="{{ route('admin.users.update', $user) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
+      @method('PUT')
+      
       <div class="mb-3">
         <label for="name" class="form-label">Nome e Cognome</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="inserisci il tuo Nome e Cognome" value="{{ old('name'), $user->name }}">
+        <input type="text" class="form-control" name="name" id="name" placeholder="inserisci il tuo Nome e Cognome" value="{{ old('name', $user->name) }}">
       </div>
 
       <div class="mb-3">
@@ -24,7 +26,7 @@
       <div class="mb-3">
         <h3>Password</h3>
         <p class="text-danger">Non è possibile modificare la password per motivi di sicurezza.</p>
-        <p>Se vuoi modificare la password vai al <a href="{{ route('password.request') }}">recupero password</a>.</p>
+        <p>Se vuoi modificare la tua password vai alla <a href="{{ route('profile.edit') }}">pagina di modifica del tuo profilo</a>.</p>
       </div>
 
       <button class="btn btn-primary">Salva</button>
