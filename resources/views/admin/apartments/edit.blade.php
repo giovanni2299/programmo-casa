@@ -5,10 +5,11 @@
         <h1>Aggiungi un appartamento</h1>
     </div>
     <div class="container">
-        <form action="{{ route('admin.apartments.store') }}" method="POST" >
+        <form action="{{ route('admin.apartments.update',$apartment) }}" method="POST" >
 
             {{-- Cross Site Request Forgering --}}
             @csrf
+            @method('PUT')
 
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6 flex-grow-1">
