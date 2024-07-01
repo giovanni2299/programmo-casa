@@ -87,6 +87,15 @@
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="service_container">
                         <h4>Quali Servizi Disponibili</h4>
+                        @foreach ($services as $service)
+                            <div class="from-check">
+                                <input class="form-check-input" @checked(in_array($service->id, old('services', $apartment->services->pluck('id')->all() ))) type="checkbox" name='service[]' id="service-{{ $service->id }}" value="{{ $service->id }}">
+                                <label class="form-check-lable" for="weapon-{{ $service->id }}">
+                                {{ $service->name }}
+                                </label>
+
+                            </div>
+                        @endforeach
                     </div>
     
                 </div>

@@ -22,7 +22,7 @@
         <div class="row justify-content-center">
             <img src="{{asset('img/'.$apartment->img_apartment)}}" alt="">
         </div>
-        <div class="description_container mb-3 p-3">
+        <div class="description_container mb-3">
             <div class="mb-2">
                 <h5>
                     Descrizione:
@@ -79,7 +79,12 @@
         </div>
 
         <div class="services_container mb-3">
-            qui andranno i servizi
+            @foreach ($apartment->services as $service)
+            <div>
+                {{$service->name}}
+
+            </div>
+            @endforeach
         </div>
 
         <div class="mb-3">
