@@ -5,7 +5,7 @@
     <div class="container p-5">
       <div class="row justify-content-end">
         <div class="col-auto ">
-          <a class="btn btn-outline-dark" href="">AGGIUNGI UN NUOVO SERVIZIO</a>
+          <a class="btn btn-outline-dark" href="{{ route('admin.services.create')}}">AGGIUNGI UN NUOVO SERVIZIO</a>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
                     @csrf
                     @method('DELETE')
 
-                    <button class="btn btn-danger link-danger text-white">Elimina</button>
+                    <button class="btn btn-danger link-danger text-white">ELIMINA</button>
 
                     <!-- <div class="d-none modal-delete" >
                       <h5>Sei sicuro di voler eliminare?</h5>
