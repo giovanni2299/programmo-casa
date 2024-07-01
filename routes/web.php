@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::middleware(['auth','verified'])
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
+    Route::resource('users', UserController::class);
 
     Route::resource('sponsorship',SponsorshipController::class);
     
