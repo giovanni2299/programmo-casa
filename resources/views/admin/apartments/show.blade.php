@@ -18,8 +18,58 @@
         <div class="row justify-content-center">
             <img src="{{asset('img/'.$apartment->img_apartment)}}" alt="">
         </div>
-        <div class="description_container mb-3">
-            {{$apartment->description}}
+        <div class="description_container mb-3 p-3">
+            <div class="mb-2">
+
+                {{$apartment->description}}
+            </div>
+            <div>
+                <h5>
+                    N° Stanze:
+
+                </h5>
+                <p>
+
+                    {{$apartment->rooms}}
+                </p>
+
+            </div>
+            <div>
+                <h5>
+
+                    N° Letti:
+                </h5>
+                <p>
+
+                    {{$apartment->beds}}
+                </p>
+            </div>
+            <div>
+                <h5>
+                    N° bagni:
+
+                </h5>
+                <p>
+
+                    {{$apartment->bathrooms}}
+                </p>
+
+            </div>
+
+            <div>
+                <h5>
+                    M²:
+
+                </h5>
+                <p>
+
+                    {{$apartment->sqr_meters}}
+                </p>
+
+            </div>
+            
+
+
         </div>
 
         <div class="services_container mb-3">

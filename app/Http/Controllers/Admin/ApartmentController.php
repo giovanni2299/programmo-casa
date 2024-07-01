@@ -16,26 +16,36 @@ class ApartmentController extends Controller
     }
 
     public function create(){
-        
+        return view('admin.apartments.create');
     }
 
-    public function store(){
-        
+    public function store(Request $request){
+        $form_data = $request->all();
+
+        $new_apartment = Apartment::create($form_data);
+
+        return to_route('admin.apartments.show', $new_apartment);
     }
 
     public function show(Apartment $apartment){
         return view('admin.apartments.show', compact('apartment'));
     }
 
-    public function edit(){
+    public function edit(Apartment $apartment){
         
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
-    public function update(){
-        
+    public function update(Request $request, Apartment $apartment){
+        $form_data = $request->all();
+
+        $apartment->upadte($form_data);
+
+        return to_route('admin.apartments.show', $apartment);
     }
 
-    public function destroy(){
-        
+    public function destroy(Apartment $apartment){
+        $apartment->delete();
+        return to_route('admin.apartments.index');
     }
 }
