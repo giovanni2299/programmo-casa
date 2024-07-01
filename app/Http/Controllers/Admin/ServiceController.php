@@ -31,7 +31,11 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data_service = $request->all();
+
+        $new_service = Service::create($data_service);
+
+        return to_route('admin.services.show', $new_service);
     }
 
     /**
@@ -45,17 +49,21 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Service $service)
     {
-        //
+        return view('admin.services.edit', compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Service $service)
     {
-        //
+        $form_service = $request->all();
+
+        $service->update($form_service);
+
+        return to_route('admin.services.show', $service);
     }
 
     /**
