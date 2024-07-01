@@ -13,31 +13,37 @@
       <div class="row">
         @foreach ($services as $service)
         <div class="col-2 p-2">
-        <div class="card p-2">
-          <div class="card-text">
-          <a href="{{ route('admin.services.show', $service) }}">
-            {{ $service->name }}
-          </a>
-          </div>
-          <div class="card-btn">
-            <a class="btn btn-secondary text-white" href="">MODIFICA</a>
-            <form class="services-destroy-form" action="{{ route('admin.services.destroy', $service) }}" method="POST">
+          <div class="card p-2">
+            <div class="card-text py-2 bg-secondary bg-gradient bg-opacity-25 rounded">
+              <a class="text-decoration-none text-dark px-2" href="{{ route('admin.services.show', $service) }}">
+                {{ $service->name }}
+              </a>
+            </div>
+            <div class="my-card-btn py-2">
+              <div class="row">
+                <div class="col-auto">
+                  <a class="btn btn-secondary text-white " href="">MODIFICA</a>
+                </div>
+                <div class="col-auto">
+                  <form class="services-destroy-form" action="{{ route('admin.services.destroy', $service) }}" method="POST">
 
-              @csrf
-              @method('DELETE')
+                    @csrf
+                    @method('DELETE')
 
-              <button class="btn btn-danger link-danger text-white">Elimina</button>
+                    <button class="btn btn-danger link-danger text-white">Elimina</button>
 
-              <!-- <div class="d-none modal-delete" >
-                <h5>Sei sicuro di voler eliminare?</h5>
-                <button class="btn-yes">si</button>
-                <button class="btn-no">no</button>
-              </div> -->
-            </form>
+                    <!-- <div class="d-none modal-delete" >
+                      <h5>Sei sicuro di voler eliminare?</h5>
+                      <button class="btn-yes">si</button>
+                      <button class="btn-no">no</button>
+                    </div> -->
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    @endforeach
+        @endforeach
       </div>
     </div>
   </section>
