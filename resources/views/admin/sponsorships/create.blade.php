@@ -8,9 +8,9 @@
 
         <!-- aggiungo un tooken di sicurezza per l'invio dei dati -->
         @csrf
-        <input name="nome" type="text"> inserisci nome del servizio
-        <input name="prezzo" type="number"> inserisci costo abbonamento
-        <input name="durata" type="number"> inserisci durata abbonamento
+        <input name="name" type="text"> inserisci nome del servizio
+        <input name="price" type="number" step="0.01"> inserisci costo abbonamento
+        <input name="duration" type="number"> inserisci durata abbonamento
 
         <button>
             invia dati
