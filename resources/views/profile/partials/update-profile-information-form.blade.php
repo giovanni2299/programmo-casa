@@ -28,6 +28,17 @@
         </div>
 
         <div class="mb-2">
+            <label for="name">{{__('Date of birth')}}</label>
+
+            <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="date_of_birth" value="{{old('date_of_birth', $user->date_of_birth)}}" required autofocus>
+            @error('date_of_birth')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('date_of_birth')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
             <label for="email">
                 {{__('Email') }}
             </label>

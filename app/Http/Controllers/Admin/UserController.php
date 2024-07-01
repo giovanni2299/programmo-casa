@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,15 +28,19 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $user = User::create($form_data);
+
+        return to_route('admin.users.show', $user);
     }
 
     /**
@@ -42,7 +48,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -50,15 +56,20 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', compact('user'));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $form_data = $request->validated();
+
+        $user->update($form_data);
+
+        return to_route('admin.users.show', $user);
     }
 
     /**
