@@ -20,9 +20,9 @@
               </a>
             </div>
             <div class="my-card-btn py-2">
-              <div class="row">
+              <div class="row gap-1">
                 <div class="col-auto">
-                  <a class="btn btn-secondary text-white " href="">MODIFICA</a>
+                  <a class="btn btn-secondary text-white" href="">MODIFICA</a>
                 </div>
                 <div class="col-auto">
                   <form class="services-destroy-form" action="{{ route('admin.services.destroy', $service) }}" method="POST">
