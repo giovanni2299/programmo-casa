@@ -35,6 +35,7 @@ Route::middleware(['auth','verified'])
     
     Route::resource('apartments',ApartmentController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('sponsorships',SponsorshipController::class);
 });
 
 Route::middleware('auth')->group(function () {

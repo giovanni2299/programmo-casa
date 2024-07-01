@@ -13,7 +13,9 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        $sponsorships = Sponsorship::all();
+
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
@@ -21,7 +23,7 @@ class SponsorshipController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sponsorships.create');
     }
 
     /**
@@ -29,7 +31,14 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // recupero i dati dalla richiesta
+        $form_data = $request->all();
+
+        // dico di creare nel db un nuovo record prendendi i dati per la creazione da $form_data
+        $new_sponsorship = Sponsorship::create($form_data);
+
+        // dico una volta creato il record di ridirigerlo alla show
+        return to_route('admin.sponsorships.show', $new_sponsorship);
     }
 
     /**
@@ -37,7 +46,7 @@ class SponsorshipController extends Controller
      */
     public function show(Sponsorship $sponsorship)
     {
-        //
+        return view('admin.sponsorships.show', compact('sponsorship'));
     }
 
     /**
@@ -45,7 +54,7 @@ class SponsorshipController extends Controller
      */
     public function edit(Sponsorship $sponsorship)
     {
-        //
+        return view('admin.sponsorships.edit', compact('sponsorship'));
     }
 
     /**
@@ -53,7 +62,14 @@ class SponsorshipController extends Controller
      */
     public function update(Request $request, Sponsorship $sponsorship)
     {
-        //
+        // recupero i dati dalla richiesta
+        $form_data = $request->all();
+
+        // faccio un update dei dati modificati
+        $sponsorship->update($form_data);
+
+        // dico una volta creato il record di ridirigerlo alla show
+        return to_route('admin.sponsorships.show', $sponsorship);
     }
 
     /**
@@ -61,6 +77,10 @@ class SponsorshipController extends Controller
      */
     public function destroy(Sponsorship $sponsorship)
     {
-        //
+        // implemento la funzione di delete
+        $sponsorship->delete();
+
+        // dico di ridirigermi alla index
+        return to_route('admin.sponsorships.index');
     }
 }
