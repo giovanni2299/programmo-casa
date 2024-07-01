@@ -14,8 +14,8 @@
         @foreach ($services as $service)
         <div class="col-2 p-2">
           <div class="card p-2">
-            <div class="card-text py-2 bg-secondary bg-gradient bg-opacity-25 rounded">
-              <a class="text-decoration-none text-dark px-2" href="{{ route('admin.services.show', $service) }}">
+            <div class="card-text p-2 bg-secondary bg-gradient bg-opacity-25 rounded">
+              <a class="text-decoration-none text-dark" href="{{ route('admin.services.show', $service) }}">
                 {{ $service->name }}
               </a>
             </div>
