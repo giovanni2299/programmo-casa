@@ -21,6 +21,10 @@
             @method('DELETE')
             <button class="btn btn-danger">Elimina</button>        
         </form>
+
+        <button class="btn">
+            <a class="btn btn-dark " href="{{route('admin.sponsorships.index', $sponsorship)}}"> Vai a Sponsorizzazioni </a>
+        </button>
     </div>
 </section>
 
