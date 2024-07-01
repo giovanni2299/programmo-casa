@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::middleware(['auth','verified'])->name('admin.')->prefix('admin')->group(f
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
+    Route::resource('sponsorship',SponsorshipController::class);
 });
 
 Route::middleware('auth')->group(function () {
