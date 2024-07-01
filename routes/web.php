@@ -1,7 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\Admin\ApartmentController;
+=======
+use App\Http\Controllers\Admin\ServiceController;
+>>>>>>> 2236ae0cb41c7953b89832075ebd36e157e19430
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +25,10 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth','verified'])->name('admin.')->prefix('admin')->group(function(){
+Route::middleware(['auth','verified'])
+->name('admin.')
+->prefix('admin')
+->group(function(){
     
     Route::get('/', function () {
         return view('admin.dashboard');
@@ -30,6 +37,7 @@ Route::middleware(['auth','verified'])->name('admin.')->prefix('admin')->group(f
     Route::resource('sponsorship',SponsorshipController::class);
     
     Route::resource('apartments',ApartmentController::class);
+    Route::resource('services', ServiceController::class);
 });
 
 Route::middleware('auth')->group(function () {
