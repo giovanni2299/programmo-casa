@@ -38,6 +38,8 @@ class UserController extends Controller
     {
         $form_data = $request->validated();
 
+        // dd($form_data);
+
         $user = User::create($form_data);
 
         return to_route('admin.users.show', $user);
@@ -66,6 +68,8 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $form_data = $request->validated();
+
+        // dd($form_data);
 
         $user->update($form_data);
 

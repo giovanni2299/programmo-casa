@@ -16,6 +16,12 @@
         <input type="text" class="form-control" name="name" id="name" placeholder="inserisci il tuo Nome e Cognome" value="{{ old('name') }}">
       </div>
 
+      <div class="mb-2">
+        <label for="name">Data di Nascita</label>
+
+        <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="on" value="{{old('date_of_birth')}}" required autofocus>
+      </div>
+
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" name="email" id="email" placeholder="inserisci la tua Email" value="{{ old('email') }}">

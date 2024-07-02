@@ -17,9 +17,9 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users')->ignore($this->email)],
-            // added rule of validation for the date
-            'date_of_birth' => ['nullable', 'date_format:Y-m-d']
+            'date_of_birth' => ['nullable', 'date_format:Y-m-d'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)]
+            
         ];
     }
 }
