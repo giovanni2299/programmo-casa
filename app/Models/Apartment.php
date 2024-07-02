@@ -14,6 +14,13 @@ class Apartment extends Model
     // i add it on my model
     use SoftDeletes;
 
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'date_of_birth'
+    // ];
+
     //collego la tabella sponsorship 
     public function sponsorships(){
         return $this->belongsToMany(Sponsorship::class);

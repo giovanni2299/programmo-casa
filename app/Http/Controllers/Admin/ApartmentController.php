@@ -51,7 +51,7 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment){
         $form_data = $request->all();
 
-        $apartment->upadte($form_data);
+        $apartment->update($form_data);
 
         return to_route('admin.apartments.show', $apartment);
     }
