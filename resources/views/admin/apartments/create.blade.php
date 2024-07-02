@@ -83,6 +83,18 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label for="city" class="form-label">Città</label>
+                    <input type="text" class="form-control" id="city" name="city" required>
+                    <div class="invalid-feedback">
+                        Per favore inserisci una città valida.
+                    </div>
+                    <select class="form-select" id="result-city" name="result-city">
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                    </select>
+                </div>
+
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="service_container">
                         <h4>Quali Servizi Disponibili</h4>
