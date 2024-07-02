@@ -40,7 +40,7 @@ Route::middleware(['auth','verified'])
     Route::resource('services', ServiceController::class);
     Route::resource('sponsorships',SponsorshipController::class);
 
-    Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDelete');
+    Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy');
 });
 
 Route::middleware('auth')->group(function () {

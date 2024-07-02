@@ -31,7 +31,7 @@
                                 </div>
                                 <div>
                                     @if($apartment->trashed())
-                                        <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDelete',$apartment) }}"  method="POST">
+                                        <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
                                         
                                             @csrf
                                             @method('DELETE')

@@ -90,14 +90,21 @@ class ApartmentController extends Controller
         return to_route('admin.apartments.index');
     }
 
-    public function restore(){
+    // public function restore(){
 
-    }
+    // }
 
-    public function forceDelete(Apartment $apartment){
-        dd($apartment->id);
+    public function forceDestroy($id){
+        // dd($apartment);
 
-        $apartment->forceDelete();
-        return to_route('admin.apartments.index');
+        $apartment = Apartment::withTrashed()->find($id);
+        // $apartment->forceDelete();
+        if($apartment->trashed()){
+            $apartment->forceDelete();
+        }
+
+        return back();
+        // return to_route('admin.apartments.index')
+        
     }
 }
