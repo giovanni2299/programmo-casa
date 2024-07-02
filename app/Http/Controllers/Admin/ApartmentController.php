@@ -94,15 +94,18 @@ class ApartmentController extends Controller
 
     // }
 
+    // added a function that receives the parameter id
     public function forceDestroy($id){
-        // dd($apartment);
 
+        // it uses the model Apartment to find the right id from the soft deleted Apartments in the db
         $apartment = Apartment::withTrashed()->find($id);
         // $apartment->forceDelete();
         if($apartment->trashed()){
+            // it permanently deletes the record from the db
             $apartment->forceDelete();
         }
 
+        // it bring back the user to his apartments
         return back();
         // return to_route('admin.apartments.index')
         

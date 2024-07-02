@@ -30,7 +30,9 @@
                                     <a href="{{route('admin.apartments.show',$apartment)}}">look apartment</a>
                                 </div>
                                 <div>
+                                    {{-- it allows the creation of a button if the apartment is been soft deleted --}}
                                     @if($apartment->trashed())
+                                        {{-- it sent the apartment id to the Apartment Controller through the route --}}
                                         <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
                                         
                                             @csrf
@@ -39,6 +41,7 @@
                                             <button class="btn btn-danger my-3">Delete</button>
                                         
                                         </form>
+                                    {{-- it creates a button for the soft deleting method --}}
                                     @else
                                         <form class="delete-form destroy-form" action="{{ route ('admin.apartments.destroy',$apartment) }}"  method="POST">
                                         
