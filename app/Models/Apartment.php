@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Apartment extends Model
 {
     use HasFactory;
+    protected $fillable=['title_apartment','rooms','beds','bathrooms','sqr_meters','img_apartment','description','latitude','longitude','complete_address',];
 
     //collego la tabella sponsorship 
     public function sponsorships(){
