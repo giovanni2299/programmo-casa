@@ -39,6 +39,8 @@ Route::middleware(['auth','verified'])
     Route::resource('apartments',ApartmentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('sponsorships',SponsorshipController::class);
+
+    Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDelete');
 });
 
 Route::middleware('auth')->group(function () {

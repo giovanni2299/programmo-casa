@@ -10,8 +10,13 @@ use Illuminate\Http\Request;
 class ApartmentController extends Controller
 {
     //
-    public function index(){
-        $apartments = Apartment::all();
+    public function index(Request $request){
+        if($request->has('trash')){
+            $apartments = Apartment::onlyTrashed()->get();
+        }else{
+            $apartments = Apartment::all();
+        }
+        
 
         return view('admin.apartments.index', compact('apartments'));
     }
@@ -82,6 +87,17 @@ class ApartmentController extends Controller
 
     public function destroy(Apartment $apartment){
         $apartment->delete();
+        return to_route('admin.apartments.index');
+    }
+
+    public function restore(){
+
+    }
+
+    public function forceDelete(Apartment $apartment){
+        dd($apartment->id);
+
+        $apartment->forceDelete();
         return to_route('admin.apartments.index');
     }
 }
