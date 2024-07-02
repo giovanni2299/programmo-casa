@@ -20,9 +20,17 @@
 
     <div class="container">
       <h4>Modifica</h4>
-      <div class="mb-3">
-        <a href="{{route('admin.users.edit', $user)}}">Modifica</a>
-        <a class="ms-3 text-danger" href="#">Cancella</a>
+      <div class="mb-3 d-flex">
+        <a class="btn btn-secondary me-2" href="{{route('admin.users.edit', $user)}}">Modifica</a>
+
+        <form class="delete-form" action="{{ route('admin.users.destroy',$user) }}" method="POST">
+        
+          @csrf
+          @method('DELETE')
+
+          <button class="btn btn-danger me-2">Elimina</button>
+        
+        </form>
       </div>
     </div>
   </section>

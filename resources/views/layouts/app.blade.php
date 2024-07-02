@@ -53,7 +53,10 @@
                             <a class="nav-link" href="{{url('/admin/services') }}">{{ __('Servizi') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/admin/sponsorships') }}">{{ __('Sponsorizzazioni') }}</a>
+                            <a class="nav-link" href="{{url('/admin/users') }}">{{ __('Utenti') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin/sponsorships') }}">{{ __('Sponsorships') }}</a>
                         </li>
                     </ul>
 
