@@ -17,10 +17,10 @@ class MessageSeeder extends Seeder
     {
 
         // creo array di nomi random
-        $names = ['ANDREA', 'MARCO', 'LUCA', 'ANNA', 'MARTINA', 'GIADA'];
+        $names = ['Andrea', 'Marco', 'Luca', 'Anna', 'Martina', 'Giada'];
 
         // creo array di cognomi random 
-        $surnames = ['DELLA SERRA', 'ROSSI', 'PISANI', 'CORRARATI', 'DE CECCO', 'COSTA'];
+        $surnames = ['Della Serra', 'Rossi', 'Pisani', 'Corrarati', 'Morellato', 'Costa'];
 
         // recupero l'id dal model e dalla tabella di apartments
         $apartments = Apartment::all();
