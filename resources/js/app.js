@@ -7,7 +7,7 @@ import.meta.glob([
 ])
 
 // Recupero il form 
-const forms = document.querySelectorAll('.services-destroy-form')
+const forms = document.querySelectorAll('.destroy-form')
 
 // console.log(forms)
 
