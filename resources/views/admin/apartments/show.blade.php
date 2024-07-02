@@ -122,7 +122,7 @@
             qui ci sarà il carosello con le case correlate alla ricerca
         </div>
     </div>
-    <form class="delete-form" action="{{ route('admin.apartments.destroy',$apartment) }}" method="POST">
+    <form class="delete-form destroy-form" action="{{ route('admin.apartments.destroy',$apartment) }}" method="POST">
                     
         @csrf
         @method('DELETE')
