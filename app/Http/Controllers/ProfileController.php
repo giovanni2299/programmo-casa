@@ -36,10 +36,6 @@ class ProfileController extends Controller
         $new_datas= $request->validated();
         $user->update($new_datas);
 
-        dd($new_datas);
-
-        // dd($request->validated());
-
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

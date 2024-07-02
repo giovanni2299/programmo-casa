@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
             'name' => 'required|max:60|string',
             'email' => 'unique:users,email',
             'password' => 'required|max:20|string',
-            'date_of_birth' => 'nullable'
+            'date_of_birth' => ['nullable', 'date_format:Y-m-d']
         ];
     }
 }

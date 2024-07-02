@@ -23,6 +23,11 @@
         <input type="email" class="form-control" name="email" id="email" placeholder="inserisci la tua Email" value="{{ old('email', $user->email) }}">
       </div>
 
+      <div class="mb-2">
+        <label for="name">Data di Nascita</label>
+        <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" autocomplete="on" value="{{old('date_of_birth', $user->date_of_birth)}}">
+      </div>
+
       <div class="mb-3">
         <h3>Password</h3>
         <p class="text-danger">Non è possibile modificare la password per motivi di sicurezza.</p>

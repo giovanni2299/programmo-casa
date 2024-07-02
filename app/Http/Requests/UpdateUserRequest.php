@@ -26,6 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required|max:60|string',
             'email' => ['required', 'string', 'email', Rule::unique(User::class)->ignore($this->user)],
+            'date_of_birth' => ['nullable', 'date_format:Y-m-d']
             // 'password' => 'required|max:20|string',
         ];
     }
