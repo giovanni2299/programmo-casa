@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+// i add the Eloquent features for soft deletes
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Apartment extends Model
 {
     use HasFactory;
+
+    // i add it on my model
+    use SoftDeletes;
 
     //collego la tabella sponsorship 
     public function sponsorships(){
