@@ -40,7 +40,8 @@ Route::middleware(['auth','verified'])
     Route::resource('services', ServiceController::class);
     Route::resource('sponsorships',SponsorshipController::class);
 
-    Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDelete');
+    // Added a route that uses the method delete to bring the parameter {apartment} to forceDestroy() in the ApartmentController 
+    Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy');
 });
 
 Route::middleware('auth')->group(function () {
