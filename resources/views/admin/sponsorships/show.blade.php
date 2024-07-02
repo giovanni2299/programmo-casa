@@ -16,7 +16,7 @@
         {{$sponsorship->duration}}     
         
         <!-- aggiungo il modulo per eliminare un abbonamento -->
-        <form class="delete-form" action="{{ route('admin.sponsorships.destroy',$sponsorship) }}" method="POST">       
+        <form class="delete-form destroy-form" action="{{ route('admin.sponsorships.destroy',$sponsorship) }}" method="POST">       
             @csrf
             @method('DELETE')
             <button class="btn btn-danger">Elimina</button>        

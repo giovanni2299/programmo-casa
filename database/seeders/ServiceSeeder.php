@@ -24,8 +24,6 @@ class ServiceSeeder extends Seeder
 
             // popolo la colonna dei nomi dei servizi con nomi presi dall'array creato prima 
             $new_service->name = $service_name[$i];
-            // dico in maniera random se un servizio è presente o meno
-            // $new_service->is_available = $faker->boolean();
             // salvo i servizi
             $new_service->save();
         }
