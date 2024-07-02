@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Apartment;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +17,7 @@ class ApartmentSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+        $user_ids = User::pluck('id')->all();
 
         //creo un array con i nomi degli apartamenti
         $title_apartment=['Appartamanto con piscina',
@@ -45,6 +47,9 @@ class ApartmentSeeder extends Seeder
         for($i = 0; $i < 10; $i++){
             //creiamo l'instanza del model apartment
             $new_apartment = new Apartment();
+
+            $new_apartment->user_id = $faker->randomElement($user_ids);
+
 
             //popoliamo la colonna dei titoli prendendone uno random dall'array creato
             $new_apartment->title_apartment = $faker->randomElement($title_apartment);
