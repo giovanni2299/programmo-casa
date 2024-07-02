@@ -23,6 +23,18 @@ class ApartmentController extends Controller
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'title_apartment'=>'required|max:250|string',
+            'rooms'=>'required|min:2|numeric',
+            'beds'=>'required|min:1|numeric',
+            'bathrooms'=>'required|min:1|numeric',
+            'sqr_meters'=>'required|min:70|numeric',
+            'img_apartment'=>'required|url|image',
+            'description'=>'nullable|string',
+            
+        ]);
+
         $form_data = $request->all();
 
         $new_apartment = Apartment::create($form_data);
@@ -49,6 +61,18 @@ class ApartmentController extends Controller
     }
 
     public function update(Request $request, Apartment $apartment){
+
+        $request->validate([
+            'title_apartment'=>'required|max:250|string',
+            'rooms'=>'required|min:2|numeric',
+            'beds'=>'required|min:1|numeric',
+            'bathrooms'=>'required|min:1|numeric',
+            'sqr_meters'=>'required|min:70|numeric',
+            'img_apartment'=>'required|url|image',
+            'description'=>'nullable|string',
+            
+        ]);
+
         $form_data = $request->all();
 
         $apartment->update($form_data);
