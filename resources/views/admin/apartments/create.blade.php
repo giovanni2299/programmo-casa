@@ -42,7 +42,7 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="sqr_meters">N° di Bagni:</label>
+                            <label for="sqr_meters">Metri Quadrati:</label>
                         </div>
                         <input type="number" name="sqr_meters" class="from-control" id="sqr_meters" placeholder="Inserisci i Metri Quadrati">
                     </div>
