@@ -25,7 +25,7 @@
                   <a class="btn btn-secondary btn-sm text-white" href="{{ route('admin.services.edit', $service) }}">MODIFICA</a>
                 </div>
                 <div class="col-auto">
-                  <form class="services-destroy-form" action="{{ route('admin.services.destroy', $service) }}" method="POST">
+                  <form class="destroy-form" action="{{ route('admin.services.destroy', $service) }}" method="POST">
 
                     @csrf
                     @method('DELETE')
