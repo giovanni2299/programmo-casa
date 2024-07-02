@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('longitude',15);
             $table->string('complete_address');
             $table->tinyInteger('visible')->default(0);
+            // i use the Scheme helper method to add the 'deleted_at' column
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -38,8 +40,28 @@ return new class extends Migration
         Schema::table('apartments', function(Blueprint $table){
 
             $table->dropForeign('apartments_user_id_foreign');
+            // i add the method to the down() function. When we will call the 'delete' method, the 'deleted_at' will be set. The record will be left in the table.
+            $table->dropSoftDeletes();
         });
 
         Schema::dropIfExists('apartments');
     }
 };
+
+/*
+
+This is the way to check if a record is been soft deleted.
+
+if ($flight->trashed()) {
+    // ...
+}
+
+If you want to restore a record you can use this method.
+
+$flight->restore();
+
+If you want to permanently delete a record use this method.
+
+$flight->forceDelete();
+
+*/
