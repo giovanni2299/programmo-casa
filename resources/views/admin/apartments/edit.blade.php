@@ -64,20 +64,6 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="latitude">Psoizione in Latitudine:</label>
-                        </div>
-                        <input type="text" name="latitude" class="from-control" id="latitude" placeholder="Inserisci Latitudine" value="{{old('latitude',$apartment->latitude)}}">
-                    </div>
-        
-                    <div class="mb-3">
-                        <div>
-                            <label for="longitude">Psoizione in Longitudine:</label>
-                        </div>
-                        <input type="text" name="longitude" class="from-control" id="longitude" placeholder="Inserisci Longitudine" value="{{old('longitude',$apartment->longitude)}}">
-                    </div>
-        
-                    <div class="mb-3">
-                        <div>
                             <label for="complete_address">Indirizzo Completo:</label>
                         </div>
                         <input type="text" name="complete_address" class="from-control" id="complete_address" placeholder="Inserisci L'indirizzo" value="{{old('complete_address',$apartment->complete_address)}}">
@@ -105,5 +91,16 @@
            
             <button class="btn btn-primary">modifica appartamento</button>
         </form>
+
+        @if ($errors->any())
+        <p class="">
+        <ul>
+          @foreach ($errors->all() as $error )
+          <li class="alert alert-danger">{{ $error }}</li>
+          @endforeach
+        </ul>
+        </p>
+        @endif
+
     </div>
 @endsection

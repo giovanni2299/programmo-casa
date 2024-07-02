@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('apartment_id')->nullable();
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->string('ip_number',15);
-            $table->dateTime('visit_datetime');
             $table->timestamps();
         });
     }
