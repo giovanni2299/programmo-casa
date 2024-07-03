@@ -62,26 +62,20 @@
                         <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali">
                     </div>
         
-                    <div class="mb-3">
-                        <div>
-                            <label for="complete_address">Indirizzo Completo:</label>
-                        </div>
-                        <input type="text" name="complete_address" class="form-control" id="complete_address" placeholder="Inserisci L'indirizzo">
-                    </div>
-                </div>
+                    
 
-                <div class="mb-3">
-                    <label for="address" class="form-label">Via</label>
-                    <input type="text" class="form-control my-input-address" id="address" name="address" required>
-                    <div class="invalid-feedback">
-                        Per favore inserisci una città valida.
+                    <div class="mb-3">
+                        <label for="complete_address" class="form-label">Indirizzo Completo</label>
+                        <input type="text" class="form-control my-input-address" id="complete_address" name="complete_address" required>
+                        <div class="invalid-feedback">
+                            Per favore inserisci una città valida.
+                        </div>
+                        <table>
+                            <tbody class="my-table-suggestions">
+                                
+                            </tbody>
+                        </table>
                     </div>
-                    <table>
-                        <tbody class="my-table-suggestions">
-                            
-                        </tbody>
-                    </table>
-                </div>
 
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="service_container">
