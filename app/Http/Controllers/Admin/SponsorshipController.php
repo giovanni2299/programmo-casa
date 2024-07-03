@@ -31,6 +31,12 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'price'=>'required',
+            'duration'=>'required',  
+        ]);
+
         // recupero i dati dalla richiesta
         $form_data = $request->all();
 
@@ -62,6 +68,13 @@ class SponsorshipController extends Controller
      */
     public function update(Request $request, Sponsorship $sponsorship)
     {
+
+        $request->validate([
+            'name'=>'required',
+            'price'=>'required',
+            'duration'=>'required',  
+        ]);
+
         // recupero i dati dalla richiesta
         $form_data = $request->all();
 

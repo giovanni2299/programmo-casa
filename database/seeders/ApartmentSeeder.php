@@ -32,16 +32,16 @@ class ApartmentSeeder extends Seeder
         'Appartamento sforzesco'];
 
         // creo un array con i link delle immagini degli appartamenti
-        $img_apartment=['stile-industrial_720.jpg',
-        'Affittare-Casa-Vacanza_720.jpg',
-        'casa_2_720.jpg',
-        'a1_preview_720.jpg',
-        'la-casa-stile-bridgerton_-lo-stile-800-e-il-cottagecore_720.jpg',
-        'stile_industrial_2_480.jpg',
-        'case-galleggianti_ng1_720.jpg',
-        'casa_montagna_720.jpg',
-        'casa_montagna_2_480.jpg',
-        'casa_al_mare_720.jpg'];
+        $img_apartment=['img_apartment/stile-industrial_720.jpg',
+        'img_apartment/Affittare-Casa-Vacanza_720.jpg',
+        'img_apartment/casa_2_720.jpg',
+        'img_apartment/a1_preview_720.jpg',
+        'img_apartment/la-casa-stile-bridgerton_-lo-stile-800-e-il-cottagecore_720.jpg',
+        'img_apartment/stile_industrial_2_480.jpg',
+        'img_apartment/case-galleggianti_ng1_720.jpg',
+        'img_apartment/casa_montagna_720.jpg',
+        'img_apartment/casa_montagna_2_480.jpg',
+        'img_apartment/casa_al_mare_720.jpg'];
 
         // creo un ciclo for per generare i vari appartamenti
         for($i = 0; $i < 10; $i++){
