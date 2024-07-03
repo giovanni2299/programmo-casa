@@ -5,6 +5,7 @@ import * as bootstrap from 'bootstrap';
 import.meta.glob([
     '../img/**'
 ])
+import axios from 'axios'
 
 // Recupero il form 
 const forms = document.querySelectorAll('.destroy-form')
@@ -27,3 +28,47 @@ forms.forEach(form => {
     })
 
 })
+
+const city = document.querySelector('.my-input-address')
+let inputSuggestions = document.querySelector('.my-table-suggestions')
+const resultAddress = document.querySelectorAll('.result-address')
+
+let inputCity = city.value
+let valueCity;
+
+city.addEventListener('keydown', function (){
+    axios.post('http://127.0.0.1:8000/api/address/', {parametro: valueCity})
+    .then(function (response) {
+
+        const suggestions = response.data.response.results;
+        if(suggestions){
+
+            suggestions.forEach((el)=>{
+
+                    inputSuggestions.innerHTML += `
+                        <tr>
+                            <td class='result-address'>${el.address.country}, ${el.address.municipality}, ${ el.address.countrySubdivisionName}, ${ el.address.streetName}</td>
+                        </tr>
+                        `
+            })
+        }
+        console.log(response.data.response.results);
+
+    })
+})
+
+if(resultAddress){
+
+    for(let i = 0; i < resultAddress.length; i++){
+        el = resultAddress[i]
+        el.addEventListener('click', function(){
+            console.log('sono un pezzo di td')
+        })
+    }
+}
+
+city.addEventListener('input', function(){
+    valueCity = city.value
+
+})
+

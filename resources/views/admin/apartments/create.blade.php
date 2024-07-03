@@ -83,6 +83,19 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label for="address" class="form-label">Via</label>
+                    <input type="text" class="form-control my-input-address" id="address" name="address" required>
+                    <div class="invalid-feedback">
+                        Per favore inserisci una città valida.
+                    </div>
+                    <table>
+                        <tbody class="my-table-suggestions">
+                            
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="service_container">
                         <h4>Quali Servizi Disponibili</h4>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
@@ -24,6 +25,36 @@ class ApartmentController extends Controller
 
     public function store(Request $request){
         $form_data = $request->all();
+
+        // $address =  $request->city;
+        // // $address = 'Via Giovanni Pascoli'; 
+
+        // $response = Http::get('https://api.tomtom.com/search/2/search/'.$address.'.json?key=SmzJJ1e9vacLwiqfqgxPWAvQ7Ey33PfG')->json();
+
+        // $suggestions = [];
+        // $street_name = [];
+        // $municipality = [];
+
+        // for($i = 0; $i < count($response['results']); $i++ ){
+            
+        //     $suggestions[$i] = $response['results'][$i]['address'];
+        // }
+
+        // @dump($suggestions);
+        
+        // for($x = 0; $x < count($suggestions); $x++ ){
+            
+        //     if(array_key_exists('municipality', $suggestions[$x])){
+        //         $municipality[] = $suggestions[$x]['municipality'];
+        //         // $street_name[] = $suggestions[$x]['streetName'].$municipality[$x];
+        //     }else{
+        //         // $street_name[] = $suggestions[$x]['streetName'];
+        //     }
+        // }
+
+        // @dd($street_name);
+        // @dd($municipality);
+        // @dd($response['results']);
 
         $new_apartment = Apartment::create($form_data);
 
