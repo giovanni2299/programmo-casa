@@ -13,12 +13,15 @@ class ApartmentController extends Controller
     public function index(Request $request){
         if($request->has('trash')){
             $apartments = Apartment::onlyTrashed()->get();
+            $apartment_bin = 1;
         }else{
             $apartments = Apartment::all();
+            $apartment_bin = 0;
+            
         }
         
-
-        return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.index', compact('apartments', 'apartment_bin'));
+        
     }
 
     public function create(){
@@ -90,9 +93,15 @@ class ApartmentController extends Controller
         return to_route('admin.apartments.index');
     }
 
-    // public function restore(){
-
-    // }
+    public function restore($id){
+        // dd($id);
+        $apartment = Apartment::withTrashed()->find($id);
+        // dd($apartment);
+        if($apartment->trashed()){
+            $apartment->restore();
+        }
+        return back();
+    }
 
     // added a function that receives the parameter id
     public function forceDestroy($id){

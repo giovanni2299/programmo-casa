@@ -42,6 +42,8 @@ Route::middleware(['auth','verified'])
 
     // Added a route that uses the method delete to bring the parameter {apartment} to forceDestroy() in the ApartmentController 
     Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy');
+
+    Route::post('apartments/{apartment}/restore', [ApartmentController::class, 'restore'])->name('apartments.restore');
 });
 
 Route::middleware('auth')->group(function () {
