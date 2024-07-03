@@ -36,6 +36,7 @@ let inputCity = city.value
 
 let valueCity
 let resultAddress
+let cancelToken;
 
 city.addEventListener('input', function(){
     valueCity = city.value
@@ -44,7 +45,15 @@ city.addEventListener('input', function(){
 
 city.addEventListener('keyup', function (){
 
-    axios.post('http://127.0.0.1:8000/api/address/', {parametro: valueCity})
+    if (cancelToken) {
+        cancelToken.cancel();
+    }
+
+    cancelToken = axios.CancelToken.source();
+
+    axios.post('http://127.0.0.1:8000/api/address/', {parametro: valueCity}, {
+        cancelToken: cancelToken.token
+    })
     .then(function (response) {
         
         const suggestions = response.data.response.results;
