@@ -31,15 +31,15 @@ forms.forEach(form => {
 
 const city = document.querySelector('.my-input-address')
 let inputSuggestions = document.querySelector('.my-table-suggestions')
-const resultAddress = document.querySelectorAll('.result-address')
 
 let inputCity = city.value
 let valueCity;
+let resultAddress
 
 city.addEventListener('keydown', function (){
     axios.post('http://127.0.0.1:8000/api/address/', {parametro: valueCity})
     .then(function (response) {
-
+        
         const suggestions = response.data.response.results;
         if(suggestions){
 
@@ -52,20 +52,26 @@ city.addEventListener('keydown', function (){
                         `
             })
         }
-        console.log(response.data.response.results);
 
+        let resultAddress = document.querySelectorAll('.result-address')
+        
+        if(resultAddress){
+        
+            for(let i = 0; i < resultAddress.length; i++){
+                let el = resultAddress[i]
+                el.addEventListener('click', ()=>{
+                    console.log('sono un pezzo di td')
+                    city.value = resultAddress[i].textContent
+                })
+            }
+        }
+
+        console.log(response.data.response.results);
+        console.log(resultAddress)
     })
 })
 
-if(resultAddress){
 
-    for(let i = 0; i < resultAddress.length; i++){
-        el = resultAddress[i]
-        el.addEventListener('click', function(){
-            console.log('sono un pezzo di td')
-        })
-    }
-}
 
 city.addEventListener('input', function(){
     valueCity = city.value
