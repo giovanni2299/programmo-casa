@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -31,14 +32,26 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:70|numeric',
-            // 'img_apartment'=>'required|image|max:250',
+            // validate the request for the file
+            // 'file'=>'required|file|mimes:jpg,png|max:2048',
             'description'=>'nullable|string',
             
         ]);
 
         
         $form_data = $request->all();
+
         
+        $form_data['user_id'] = Auth::id();
+       
+
+        if($request->hasFile('img_apartment')){
+
+            $image_path = Storage::disk('public')->put('img_apartment', $request->img_apartment);
+            $form_data['img_apartment'] = $image_path;
+
+        }
+
         $new_apartment = Apartment::create($form_data);
 
 
@@ -46,13 +59,13 @@ class ApartmentController extends Controller
             $new_apartment->services()->attach($request->services);
         }
 
-        if($request->hasFile('img_apartment')){
-            $img_path = Storage::disk('uploads')->put('img_uploads', $request->img_apartment); 
+        // if($request->hasFile('img_apartment')){
+        //     $img_path = Storage::disk('uploads')->put('img_uploads', $request->img_apartment); 
             
-            $form_data['img_apartment'] = $img_path;
-        }
+        //     $form_data['img_apartment'] = $img_path;
+        // }
         
-        dd($form_data);
+        // dd($form_data);
 
         return to_route('admin.apartments.show', $new_apartment);
     }

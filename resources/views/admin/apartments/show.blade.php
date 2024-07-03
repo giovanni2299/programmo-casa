@@ -20,7 +20,7 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <img src="{{asset('storage/img_uploads/'.$apartment->img_apartment)}}" alt="">
+            <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
             {{-- <img src="{{asset('storage/uploads/'.$apartment->img_apartment)}}" alt=""> --}}
 
         </div>

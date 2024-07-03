@@ -20,7 +20,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="img_banner">
-                            <img src="{{asset('storage/uploads/'.$apartment->img_apartment)}}" alt="">
+                            <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
                             <div class="banner">
                                 {{$apartment->title_apartment}}
                                 <div>
