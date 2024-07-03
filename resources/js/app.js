@@ -34,15 +34,16 @@ let inputSuggestions = document.querySelector('.my-table-suggestions')
 
 let inputCity = city.value
 
-let valueCity;
+let valueCity
 let resultAddress
 
 city.addEventListener('input', function(){
     valueCity = city.value
-
+    
 })
 
 city.addEventListener('keyup', function (){
+
     axios.post('http://127.0.0.1:8000/api/address/', {parametro: valueCity})
     .then(function (response) {
         
@@ -68,6 +69,8 @@ city.addEventListener('keyup', function (){
                 let el = resultAddress[i]
                 el.addEventListener('click', ()=>{
                     city.value = resultAddress[i].textContent
+                    inputSuggestions.innerHTML = ''
+                    
                 })
             }
         }
