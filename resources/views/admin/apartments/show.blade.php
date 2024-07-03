@@ -20,7 +20,9 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <img src="{{asset('img/'.$apartment->img_apartment)}}" alt="">
+            <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
+            {{-- <img src="{{asset('storage/uploads/'.$apartment->img_apartment)}}" alt=""> --}}
+
         </div>
         <div class="description_container mb-3">
             <div class="mb-2">
@@ -92,7 +94,8 @@
                 Dove Soggiornerai
             </h3>
             <img src="{{asset('img/'.$apartment->img_apartment)}}" alt="">
-        
+            
+            
         </div>
 
         <div class="container reviews mb-3">
