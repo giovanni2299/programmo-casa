@@ -84,8 +84,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="city" class="form-label">Città</label>
-                    <input type="text" class="form-control my-input-city" id="city" name="city" required>
+                    <label for="address" class="form-label">Via</label>
+                    <input type="text" class="form-control my-input-address" id="address" name="address" required>
                     <div class="invalid-feedback">
                         Per favore inserisci una città valida.
                     </div>
