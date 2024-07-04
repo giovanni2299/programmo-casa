@@ -124,7 +124,7 @@ class ApartmentController extends Controller
         $services = Service::orderBy('name', 'asc')->get();
         $user = User::all();
         
-        return view('admin.apartments.edit', compact('apartment','services','user'));
+        return view('admin.apartments.edit', compact('apartment','services'));
     }
 
     public function update(Request $request, Apartment $apartment){
@@ -149,7 +149,22 @@ class ApartmentController extends Controller
             
         ]);
 
+        
+
         $form_data = $request->all();
+
+
+        if($request->hasFile('img_apartment')){
+            
+            $image_path = Storage::disk('public')->put('img_apartment', $request->img_apartment);
+            $form_data['img_apartment'] = $image_path;
+
+            if($apartment->img_apartment){
+                //eliminare il file $apartment->img_apartment
+                Storage::disk('public')->delete($apartment->img_apartment);
+            }
+            
+        }
 
         //recuper l'user
         $form_data['user_id'] = Auth::id();

@@ -6,6 +6,7 @@
         @if ($apartment->user_id === Auth::id())
         <a class="btn btn-primary" href="{{route('admin.apartments.edit',$apartment)}}"> Modifica Appartamento</a>
             
+        <a class="btn btn-success" href="">Sponsorizza</a>
         @endif
 
     </div>
