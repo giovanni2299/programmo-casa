@@ -5,7 +5,7 @@
         <h1>Aggiungi un appartamento</h1>
     </div>
     <div class="container">
-        <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data" >
+        <form class="form-create-apartment" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data" >
 
             {{-- Cross Site Request Forgering --}}
             @csrf
