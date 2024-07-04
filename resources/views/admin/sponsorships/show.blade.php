@@ -2,30 +2,31 @@
 
 @section('content')
 
-<section>
-    <div>
-        <p>
-            il nostro abbonamento comprende una sponsorizzazione di {{$sponsorship->duration}} ore ad un costo di {{$sponsorship->price}}€
-        </p>
+<div class="d-flex justify-content-center mt-3">
+    <h5>
+        Il nostro abbonamento comprende una sponsorizzazione di {{$sponsorship->duration}} ore ad un costo di {{$sponsorship->price}}€
+    </h5>
+</div>
 
-        <!-- dico di stampare il nome di una sponsorship indicata -->
-        {{$sponsorship->name}}
-        <!-- dico di stampare il prezzo di una sponsorship indicata -->
-        {{$sponsorship->price}}€
-        <!-- dico di stampare la durata di una sponsorship indicata -->
-        {{$sponsorship->duration}}     
-        
-        <!-- aggiungo il modulo per eliminare un abbonamento -->
-        <form class="delete-form destroy-form" action="{{ route('admin.sponsorships.destroy',$sponsorship) }}" method="POST">       
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger">Elimina</button>        
-        </form>
+<section class="d-flex justify-content-around mt-5">
 
-        <button class="btn">
-            <a class="btn btn-dark " href="{{route('admin.sponsorships.index', $sponsorship)}}"> Vai a Sponsorizzazioni </a>
-        </button>
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+            <h5>
+                {{$sponsorship->name}}
+            </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-title">prezzo: {{$sponsorship->price}}€</p>
+            <p class="card-text">Scopri i benefici di questo servizio per le prossime {{$sponsorship->duration}}H</p>
+
+            <button class="btn">
+                <a class="btn btn-dark " href="{{route('admin.sponsorships.index', $sponsorship)}}"> Vai a Sponsorizzazioni </a>
+            </button>
+        </div>
     </div>
+
+
 </section>
 
 @endsection
