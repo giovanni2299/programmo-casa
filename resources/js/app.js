@@ -37,7 +37,7 @@ forms.forEach((form, i) => {
             ev.preventDefault();
             
             console.log('hai cliccato no');
-
+            
             modalDelete[i].classList.add('d-none');
             modalDelete[i].classList.remove('d-block');
         })

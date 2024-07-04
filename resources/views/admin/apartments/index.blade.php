@@ -25,8 +25,8 @@
 
         <div class="row gx-3 gy-3 text-center">
             @foreach ($apartments as $apartment)
-            <div class="col-12 col-lg-6">
-                <div class="card h-100">
+            <div class="col-12 col-lg-6 position-relative ">
+                <div class="card my-card-apartment h-100">
                     <div class="card-body">
                         <div class="img_banner">
                             <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
@@ -68,7 +68,7 @@
                                         <button class="btn btn-danger my-3">Elimina</button>
                                     
                                     </form>
-                                    <div class="d-none modal-delete" >
+                                    <div class="d-none modal-delete position-absolute top-50 start-50 translate-middle bg-body rounded p-3" >
                                         <h5>Sei sicuro di voler eliminare?</h5>
                                         <button class="btn-yes btn btn-outline-dark">si</button>
                                         <button class="btn-no btn btn-outline-dark">no</button>
