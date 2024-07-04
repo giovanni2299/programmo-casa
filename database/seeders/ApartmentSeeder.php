@@ -91,18 +91,43 @@ class ApartmentSeeder extends Seeder
             //popoliamo la colonna dei titoli prendendone uno random dall'array creato
             $new_apartment->title_apartment = $faker->randomElement($title_apartment);
             // popoliamo la colonna delle stanze con un numero random
-            $new_apartment->rooms = $faker->numberBetween(3,8);
+            $new_apartment->rooms = $faker->numberBetween(2,8);
             
             // facciamo dei controlli in base al numero di stanze per generare bagni e letti
-            if($new_apartment->rooms <= 4){
+            if($new_apartment->rooms === 2){
                 $new_apartment->bathrooms = 1 ;
-                $new_apartment->beds = $faker->numberBetween(1,2);
-                $new_apartment->sqr_meters = $faker->numberBetween(70,100);
+                $new_apartment->beds = 1;
+                $new_apartment->sqr_meters = $faker->numberBetween(15,40);
+
+            }elseif($new_apartment->rooms === 3) {
+                $new_apartment->bathrooms = 1;
+                $new_apartment->beds = 1;
+                $new_apartment->sqr_meters = $faker->numberBetween(40,75);
+
+            }elseif($new_apartment->rooms === 4) {
+                $new_apartment->bathrooms = 1;
+                $new_apartment->$faker->numberBetween(2,3);
+                $new_apartment->sqr_meters = $faker->numberBetween(75,95);
+
+            }elseif($new_apartment->rooms === 5) {
+                $new_apartment->bathrooms = $faker->numberBetween(1,2);
+                $new_apartment->beds = $faker->numberBetween(2,3);
+                $new_apartment->sqr_meters = $faker->numberBetween(95,115);
+
+            }elseif($new_apartment->rooms === 6) {
+                $new_apartment->bathrooms = 2;
+                $new_apartment->beds = 3;
+                $new_apartment->sqr_meters = $faker->numberBetween(115,135);
+
+            }elseif($new_apartment->rooms === 7) {
+                $new_apartment->bathrooms = 2;
+                $new_apartment->beds = 3;
+                $new_apartment->sqr_meters = $faker->numberBetween(135,160);
 
             }else{
-                $new_apartment->bathrooms = 2 ;
-                $new_apartment->beds = $faker->numberBetween(2,3);
-                $new_apartment->sqr_meters = $faker->numberBetween(120,170);
+                $new_apartment->bathrooms = 2;
+                $new_apartment->beds = $faker->numberBetween(3,4);
+                $new_apartment->sqr_meters = $faker->numberBetween(160,200);
 
             };
 
