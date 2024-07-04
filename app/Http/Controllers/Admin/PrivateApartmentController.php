@@ -17,7 +17,7 @@ class PrivateApartmentController extends Controller
 
         $apartments =Apartment::where('user_id',$userid)->get();
 
-        return view('admin.userindex.index', compact('apartments','userid'));
+        return view('admin.user_index.userindex', compact('apartments'));
     }
 
     public function show(){
