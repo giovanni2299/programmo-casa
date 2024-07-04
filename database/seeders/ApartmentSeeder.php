@@ -20,17 +20,41 @@ class ApartmentSeeder extends Seeder
         $user_ids = User::all()->pluck('id')->all();
 
          // creo un array con delle vie di milano
-         $apartment_streets = ['Via Vitorio Pisani 20124 Milano MI', //45.481487, 9.199866
-         'Via Giulio Cesare Procaccini 20154 Milano MI', // 45.482516, 9.168860
-         'Via Giotto 20145 Milano MI', // 45.469681, 9.156283
-         'Via Andrea Salaino 20144 Milano MI', // 45.456429, 9.164435
-         'Via Carlo Botta 20135 Milano MI', // 45.455147, 9.205952
-         'Via Pasquale Sottocorno 20129 Milano MI', // 45.465698, 9.209378
-         'Via Lambro 20129 Milano MI', // 45.473969, 9.208528
-         'Corso Di Porta Ticinese 20123 Milano MI', // 45.455218, 9.180599
-         'Via Lodovico Settala 20124 Milano MI', // 45.478900, 9.204642
-         'Via Ciovassino 20121 Milano MI' // 45.469521, 9.187291
+         $apartment_streets = ['Via Vitorio Pisani 20124 Milano MI', 
+         'Via Giulio Cesare Procaccini 20154 Milano MI', 
+         'Via Giotto 20145 Milano MI', 
+         'Via Andrea Salaino 20144 Milano MI', 
+         'Via Carlo Botta 20135 Milano MI', 
+         'Via Pasquale Sottocorno 20129 Milano MI',  
+         'Via Lambro 20129 Milano MI', 
+         'Corso Di Porta Ticinese 20123 Milano MI', 
+         'Via Lodovico Settala 20124 Milano MI', 
+         'Via Ciovassino 20121 Milano MI' 
          ];
+
+         //  creo la latitudine degli appartamenti
+         $apartment_latitude = ['45.481487',
+        '45.482516',
+        '45.469681', 
+        '45.456429', 
+        '45.455147', 
+        '45.465698', 
+        '45.473969', 
+        '45.455218', 
+        '45.478900', 
+        '45.469521'];
+
+         //  creo la longitudine degli appartamenti
+         $apartment_longitude = ['9.199866', 
+         '9.168860', 
+         '9.156283', 
+         '9.164435', 
+         '9.205952', 
+         '9.209378', 
+         '9.208528', 
+         '9.180599', 
+         '9.204642', 
+         '9.187291'];
 
         //creo un array con i nomi degli apartamenti
         $title_apartment=['Appartamanto con piscina',
@@ -91,12 +115,98 @@ class ApartmentSeeder extends Seeder
             $new_apartment->img_apartment = $faker->randomElement($img_apartment);
             // popoliamo la colonna della descrizione 
             $new_apartment->description = $faker->paragraph();
+            // popoliamo la colonna dell'indirizzo con vie random prese da un array
+            $new_apartment->complete_address = $faker->randomElement($apartment_streets);
             // popoliamo la colonna della latitudine con dati random
             $new_apartment->latitude = $faker->randomNumber(7);
+
+            if($new_apartment->complete_address == 'Via Vitorio Pisani 20124 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[0];
+
+            } elseif ($new_apartment->complete_address == 'Via Giulio Cesare Procaccini 20154 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[1];
+
+            } elseif ($new_apartment->complete_address == 'Via Giotto 20145 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[2];
+
+            } elseif ($new_apartment->complete_address == 'Via Andrea Salaino 20144 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[3];
+
+            } elseif ($new_apartment->complete_address == 'Via Carlo Botta 20135 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[4];
+
+            } elseif ($new_apartment->complete_address == 'Via Pasquale Sottocorno 20129 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[5];
+
+            } elseif ($new_apartment->complete_address == 'Via Lambro 20129 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[6];
+
+            } elseif ($new_apartment->complete_address == 'Corso Di Porta Ticinese 20123 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[7];
+
+            } elseif ($new_apartment->complete_address == 'Via Lodovico Settala 20124 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[8];
+
+            } elseif ($new_apartment->complete_address == 'Via Ciovassino 20121 Milano MI'){
+
+                $new_apartment->latitude = $apartment_latitude[9];
+
+            };
+
             // popoliamo la colonna della longitudine con dati random
             $new_apartment->longitude = $faker->randomNumber(7);
-            // popoliamo la colonna dell'indirizzo con vie random italiane
-            $new_apartment->complete_address = $faker->randomElement($apartment_streets);
+
+            if($new_apartment->complete_address == 'Via Vitorio Pisani 20124 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[0];
+
+            } elseif ($new_apartment->complete_address == 'Via Giulio Cesare Procaccini 20154 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[1];
+
+            } elseif ($new_apartment->complete_address == 'Via Giotto 20145 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[2];
+
+            } elseif ($new_apartment->complete_address == 'Via Andrea Salaino 20144 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[3];
+
+            } elseif ($new_apartment->complete_address == 'Via Carlo Botta 20135 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[4];
+
+            } elseif ($new_apartment->complete_address == 'Via Pasquale Sottocorno 20129 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[5];
+
+            } elseif ($new_apartment->complete_address == 'Via Lambro 20129 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[6];
+
+            } elseif ($new_apartment->complete_address == 'Corso Di Porta Ticinese 20123 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[7];
+
+            } elseif ($new_apartment->complete_address == 'Via Lodovico Settala 20124 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[8];
+
+            } elseif ($new_apartment->complete_address == 'Via Ciovassino 20121 Milano MI'){
+
+                $new_apartment->longitude = $apartment_longitude[9];
+
+            };
+            
             // diciamo se l'appartamento è visibile o meno con un generatore booleano random 
             $new_apartment->visible = $faker->boolean();
             // salviamo i dati
