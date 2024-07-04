@@ -49,11 +49,8 @@ class ApartmentController extends Controller
             
         ]);
 
-        
         $form_data = $request->all();
 
-
-        
         $form_data['user_id'] = Auth::id();
        
 
