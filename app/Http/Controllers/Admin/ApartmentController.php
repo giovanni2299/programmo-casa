@@ -119,6 +119,9 @@ class ApartmentController extends Controller
 
         $form_data = $request->all();
 
+        // $form_data['latitude'] = $form_data->latitude;
+        // $form_data['longitude'] = $form_data->longitude;
+
         $apartment->update($form_data);
 
         return to_route('admin.apartments.show', $apartment);
