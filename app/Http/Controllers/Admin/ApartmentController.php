@@ -57,6 +57,7 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:70|numeric',
+            'img_apartment' => 'nullable|image|max:2048',
             // 'user_id'=>'required|exist:users,id',
             // validate the request for the file
             // 'file'=>'required|file|mimes:jpg,png|max:2048',
@@ -139,6 +140,7 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:70|numeric',
+            'img_apartment' => 'nullable|image|max:2048',
             // 'user_id'=>'required|exist:users,id',
             // 'img_apartment'=>'required|image|max:250',
             'description'=>'nullable|string',
