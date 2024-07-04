@@ -56,7 +56,7 @@ class ApartmentController extends Controller
             'rooms'=>'required|min:2|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
-            'sqr_meters'=>'required|min:70|numeric',
+            'sqr_meters'=>'required|min:15|numeric',
             'img_apartment' => 'nullable|image|max:2048',
             // 'user_id'=>'required|exist:users,id',
             // validate the request for the file
