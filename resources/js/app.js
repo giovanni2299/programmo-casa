@@ -62,16 +62,26 @@ city.addEventListener('keyup', function (){
 
             suggestions.forEach((el)=>{
 
-                    inputSuggestions.innerHTML += `
-                        <tr>
-                            <td class='result-address'>${el.address.country}, ${el.address.municipality}, ${ el.address.countrySubdivisionName}, ${ el.address.streetName}</td>
-                        </tr>
-                        `
+                inputSuggestions.innerHTML += `
+                    <tr>
+                        <td class='result-address'>${el.address.country}, ${el.address.municipality}, ${ el.address.countrySubdivisionName}, ${ el.address.streetName}, 
+                    </tr>
+                    <span class='lat' hidden>
+                        ${el.position.lat}
+                    </span>
+                    <span class='lon' hidden>
+                        ${el.position.lon}
+                    </span></td>
+                    `
             })
         }
 
         let resultAddress = document.querySelectorAll('.result-address')
-        
+        const resultsLat = document.querySelectorAll('.lat')
+        const resultsLon = document.querySelectorAll('.lon')
+        const inputLat = document.querySelector('.latitude')
+        const inputLon = document.querySelector('.longitude')
+
         if(resultAddress){
         
             for(let i = 0; i < resultAddress.length; i++){
@@ -79,7 +89,10 @@ city.addEventListener('keyup', function (){
                 el.addEventListener('click', ()=>{
                     city.value = resultAddress[i].textContent
                     inputSuggestions.innerHTML = ''
-                    
+                    inputLat.value = resultsLat[i].innerText.replace(/\s+/g, '')
+                    inputLon.value = resultsLon[i].innerText.replace(/\s+/g, '')
+
+                   // console.log(inputLat)
                 })
             }
         }

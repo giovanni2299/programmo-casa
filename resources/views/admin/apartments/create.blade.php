@@ -61,8 +61,6 @@
                         </div>
                         <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali">
                     </div>
-        
-                    
 
                     <div class="mb-3">
                         <label for="complete_address" class="form-label">Indirizzo Completo</label>
@@ -77,19 +75,22 @@
                         </table>
                     </div>
 
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="service_container">
-                        <h4>Quali Servizi Disponibili</h4>
+                    <input class="latitude" type="hidden" value="0" name="latitude">
+                    <input class="longitude" type="hidden" value="0" name="longitude">
+
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="service_container">
+                            <h4>Quali Servizi Disponibili</h4>
                             <div class="accordion-body">
-                              @foreach ($services as $service)
-                                <div class="form-check">
-                                  <input @checked(in_array($service->id, old('services', []))) type="checkbox" name='services[]' id='service-{{ $service->id }}' value='{{ $service->id }}'>
-                                  <label for="weapon-{{ $service->id }}">
-                                    {{ $service->name }}
-                                  </label>
-                                </div>
-                              @endforeach
+                            @foreach ($services as $service)
+                            <div class="form-check">
+                            <input @checked(in_array($service->id, old('services', []))) type="checkbox" name='services[]' id='service-{{ $service->id }}' value='{{ $service->id }}'>
+                            <label for="weapon-{{ $service->id }}">
+                                {{ $service->name }}
+                            </label>
                             </div>
+                            @endforeach
+                        </div>
                     </div>
     
                 </div>

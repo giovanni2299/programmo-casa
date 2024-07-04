@@ -63,11 +63,17 @@
                     </div>
         
                     <div class="mb-3">
-                        <div>
-                            <label for="complete_address">Indirizzo Completo:</label>
-                        </div>
-                        <input type="text" name="complete_address" class="form-control" id="complete_address" placeholder="Inserisci L'indirizzo" value="{{old('complete_address',$apartment->complete_address)}}">
+                        <label for="complete_address">Indirizzo Completo:</label>
+                        <input type="text" name="complete_address" class="form-control my-input-address" id="complete_address" placeholder="Inserisci L'indirizzo" value="{{old('complete_address',$apartment->complete_address)}}">
+                        <table>
+                            <tbody class="my-table-suggestions">
+                                
+                            </tbody>
+                        </table>
                     </div>
+
+                    <input class="latitude" type="hidden" value="0" name="latitude">
+                    <input class="longitude" type="hidden" value="0" name="longitude">
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-6">

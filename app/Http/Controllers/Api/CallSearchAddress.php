@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Log;
 class CallSearchAddress extends Controller
 {
 
-
-
     public function fetch(Request $request)
     {   
 
@@ -22,7 +20,7 @@ class CallSearchAddress extends Controller
         $response = Http::get('https://api.tomtom.com/search/2/geocode/'.$address.'.json?storeResult=false&countrySet=ITA&lat=41.9027835&lon=12.4963655&view=Unified&key=SmzJJ1e9vacLwiqfqgxPWAvQ7Ey33PfG')->json();
 
         return response()->json([
-          
+            
             'response' => $response
             // 'nome' => 'Rocco'
         ]);
