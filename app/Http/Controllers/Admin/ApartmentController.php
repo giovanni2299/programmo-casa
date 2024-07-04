@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,12 @@ class ApartmentController extends Controller
 {
     //
     public function index(Request $request){
+
+        $userid = Auth::id();
+
+        $apartments =Apartment::where('user_id',$userid)->get();
+        // dd($apartments);
+
         if($request->has('trash')){
             $apartments = Apartment::onlyTrashed()->get();
             $apartment_bin = 1;
@@ -21,18 +28,25 @@ class ApartmentController extends Controller
             $apartment_bin = 0;
             
         }
-        
+        // dd(Auth::id());
         return view('admin.apartments.index', compact('apartments', 'apartment_bin'));
         
     }
 
     public function create(){
-        $services = Service::all();
 
+        $services = Service::all();
         return view('admin.apartments.create', compact('services'));
     }
 
     public function store(Request $request){
+
+        // $user_id = Auth::id();
+        // $user_name = Auth::user()->name;
+        // dd(Auth::user());
+        
+        $users = User::all()->pluck('id');
+        // dd($user);
 
         $request->validate([
             'title_apartment'=>'required|max:250|string',
@@ -40,6 +54,7 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:70|numeric',
+            // 'user_id'=>'required|exist:users,id',
             // validate the request for the file
             // 'file'=>'required|file|mimes:jpg,png|max:2048',
             'description'=>'nullable|string',
@@ -48,10 +63,9 @@ class ApartmentController extends Controller
 
         
         $form_data = $request->all();
-
-        
+        //recuper l'user
         $form_data['user_id'] = Auth::id();
-       
+        // dd($form_data);
 
         if($request->hasFile('img_apartment')){
 
@@ -80,19 +94,29 @@ class ApartmentController extends Controller
 
     public function show(Apartment $apartment){
 
+        $user = Auth::user();
+
+        // $apartment = Apartment::where('user_id', $user->id)->first();
+
         $apartment->load(['services', 'services.apartments']);
 
         return view('admin.apartments.show', compact('apartment'));
     }
 
     public function edit(Apartment $apartment){
-
         $services = Service::orderBy('name', 'asc')->get();
         
-        return view('admin.apartments.edit', compact('apartment','services'));
+        return view('admin.apartments.edit', compact('apartment','services','user'));
     }
 
     public function update(Request $request, Apartment $apartment){
+
+        // if ($apartment->user_id !== Auth::id()) {
+        //     return to_route('admin.apartments.index');
+        // }
+
+        $users = User::all()->pluck('id');
+
 
         $request->validate([
             'title_apartment'=>'required|max:250|string',
@@ -100,12 +124,18 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:70|numeric',
+            // 'user_id'=>'required|exist:users,id',
             // 'img_apartment'=>'required|image|max:250',
             'description'=>'nullable|string',
             
         ]);
 
         $form_data = $request->all();
+
+        //recuper l'user
+        $form_data['user_id'] = Auth::id();
+
+        
 
         $apartment->update($form_data);
 
