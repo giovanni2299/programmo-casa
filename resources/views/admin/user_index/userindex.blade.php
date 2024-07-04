@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container text-center mb-3">
+<div class="container text-center p-3">
     <h1>I tuoi appartamenti</h1>
 
 </div>
@@ -14,22 +14,17 @@
                         @if ($apartment->user_id === Auth::id())
                             {{$apartment->title_apartment}}
                             <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
-                            {{-- <form class="delete-form destroy-form" action="{{ route ('admin.user_index.destroy',$apartment) }}"  method="POST">
+                            <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
                                     
                                 @csrf
                                 @method('DELETE')
                             
                                 <button class="btn btn-danger my-3">Elimina</button>
                             
-                            </form> --}}
+                            </form>
                          @endif
 
-                         <div class="mt-3 mb-3">
-                                <a class="btn btn-success" href="">Sponsorizza</a>
-
-                         </div>
-                         <a class="btn btn-dark" href="{{route('admin.apartments.show',$apartment)}}">Visualizza dettagli</a>
-
+                         <a class="btn btn-success" href="">Sponsorizza</a>
 
                     </div>
                 </div>
@@ -40,4 +35,3 @@
         
     </div>
 @endsection
- 

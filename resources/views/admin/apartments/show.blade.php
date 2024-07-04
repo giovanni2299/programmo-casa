@@ -3,7 +3,10 @@
 @section('content')
 <div class="container p-3">
     <div>
+        @if ($apartment->user_id === Auth::id())
         <a class="btn btn-primary" href="{{route('admin.apartments.edit',$apartment)}}"> Modifica Appartamento</a>
+            
+        @endif
 
     </div>
     <div class="row mt-3 mb-3">
@@ -72,6 +75,18 @@
                 <p>
 
                     {{$apartment->sqr_meters}}
+                </p>
+
+            </div>
+
+            <div class="mb-2">
+                <h5>
+                    indirizzo:
+
+                </h5>
+                <p>
+
+                    {{$apartment->complete_address}}
                 </p>
 
             </div>

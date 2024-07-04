@@ -21,18 +21,18 @@ class ApartmentController extends Controller
         $apartments =Apartment::where('user_id',$userid)->get();
         // dd($apartments);
 
-        if($request->has('trash')){
-            $apartments = Apartment::onlyTrashed()->get();
-            $apartment_bin = 1;
-        }else{
-            $apartments = Apartment::all();
-            $apartment_bin = 0;
+        // if($request->has('trash')){
+        //     $apartments = Apartment::onlyTrashed()->get();
+        //     $apartment_bin = 1;
+        // }else{
+        //     $apartments = Apartment::all();
+        //     $apartment_bin = 0;
             
-        }
+        // }
         $my_ip = $request->ip();
         // dd($my_ip);
         // dd(Auth::id());
-        return view('admin.apartments.index', compact('apartments', 'apartment_bin'));
+        return view('admin.apartments.index', compact('apartments',));
         
     }
 
