@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center">
-        <h1>Aggiungi un appartamento</h1>
+    <div class="container text-center mb-3 p-3">
+        <h1>Modifica un appartamento</h1>
     </div>
     <div class="container">
-        <form action="{{ route('admin.apartments.update',$apartment) }}" method="POST" >
+        <form action="{{ route('admin.apartments.update',$apartment) }}" method="POST" enctype="multipart/form-data">
 
             {{-- Cross Site Request Forgering --}}
             @csrf
