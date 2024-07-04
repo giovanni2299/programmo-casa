@@ -19,6 +19,19 @@ class ApartmentSeeder extends Seeder
     {
         $user_ids = User::pluck('id')->all();
 
+         // creo un array con delle vie di milano
+         $apartment_streets = ['Via Vitorio Pisani 20124 Milano MI', //45.481487, 9.199866
+         'Via Giulio Cesare Procaccini 20154 Milano MI', // 45.482516, 9.168860
+         'Via Giotto 20145 Milano MI', // 45.469681, 9.156283
+         'Via Andrea Salaino 20144 Milano MI', // 45.456429, 9.164435
+         'Via Carlo Botta 20135 Milano MI', // 45.455147, 9.205952
+         'Via Pasquale Sottocorno 20129 Milano MI', // 45.465698, 9.209378
+         'Via Lambro 20129 Milano MI', // 45.473969, 9.208528
+         'Corso Di Porta Ticinese 20123 Milano MI', // 45.455218, 9.180599
+         'Via Lodovico Settala 20124 Milano MI', // 45.478900, 9.204642
+         'Via Ciovassino 20121 Milano MI' // 45.469521, 9.187291
+         ];
+
         //creo un array con i nomi degli apartamenti
         $title_apartment=['Appartamanto con piscina',
         'Appartamento vista mare',
@@ -83,7 +96,7 @@ class ApartmentSeeder extends Seeder
             // popoliamo la colonna della longitudine con dati random
             $new_apartment->longitude = $faker->randomNumber(7);
             // popoliamo la colonna dell'indirizzo con vie random italiane
-            $new_apartment->complete_address = $faker->address();
+            $new_apartment->complete_address = $faker->randomElement($apartment_streets);
             // diciamo se l'appartamento è visibile o meno con un generatore booleano random 
             $new_apartment->visible = $faker->boolean();
             // salviamo i dati
