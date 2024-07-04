@@ -12,7 +12,7 @@
     @foreach($sponsorships as $sponsorship)
 
         <div class="card bg-light mb-3 mt-5" style="max-width: 18rem;">
-            <div class="card-header">
+            <div class="card-header text-center">
                 <h5>
                     {{$sponsorship->name}}
                 </h5>

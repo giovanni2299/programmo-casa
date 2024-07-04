@@ -11,7 +11,7 @@
 <section class="d-flex justify-content-around mt-5">
 
     <div class="card bg-light mb-3" style="max-width: 18rem;">
-        <div class="card-header">
+        <div class="card-header text-center">
             <h5>
                 {{$sponsorship->name}}
             </h5>
