@@ -13,18 +13,40 @@ const forms = document.querySelectorAll('.destroy-form')
 // console.log(forms)
 
 // Ciclo ogni form per aggangiare l'ascolto dell'evento
-forms.forEach(form => {
+forms.forEach((form, i) => {
 
     // Aggancio l'evento
     form.addEventListener('submit',(e) => {
         // Al momento del click sul bottone blocco il codice successivo
         e.preventDefault()
 
-        // Mostro un modale per chiedere la conferma dell'eliminazione 
-        if(confirm('Vuoi eliminare questo post?')) {
-            // Se la risposta è positiva faccio ripartire il codice
-            form.submit()
-        }
+        const modalDelete = document.querySelectorAll('.modal-delete');
+        
+        modalDelete[i].classList.add('d-block');
+        modalDelete[i].classList.remove('d-none');
+
+        const btnYes = document.querySelectorAll('.btn-yes');
+        btnYes[i].addEventListener('click', (ev) =>{
+            ev.preventDefault();
+            console.log('hai cliccato si')
+            form.submit();
+        })
+
+        const btnNo = document.querySelectorAll('.btn-no');
+        btnNo[i].addEventListener('click', (ev) =>{
+            ev.preventDefault();
+            
+            console.log('hai cliccato no');
+            
+            modalDelete[i].classList.add('d-none');
+            modalDelete[i].classList.remove('d-block');
+        })
+        
+        // // Mostro un modale per chiedere la conferma dell'eliminazione 
+        // if(confirm('Vuoi eliminare questo post?')) {
+        //     // Se la risposta è positiva faccio ripartire il codice
+        //     form.submit()
+        // }
     })
 
 })

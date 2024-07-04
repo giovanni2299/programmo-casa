@@ -47,19 +47,19 @@
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/admin/apartments') }}">{{ __('Appartamenti') }}</a>
+                            <a class="nav-link" href="{{url('/admin/apartments') }}">{{ __('Cerca') }}</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/services') }}">{{ __('Servizi') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/users') }}">{{ __('Utenti') }}</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/sponsorships') }}">{{ __('Sponsorizzazioni') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/admin/userindex') }}">{{ __('i tuoi apartamenti') }}</a>
+                            <a class="nav-link" href="{{url('/admin/userindex') }}">{{ __('I Miei Appartamenti') }}</a>
                         </li>
                     </ul>
 

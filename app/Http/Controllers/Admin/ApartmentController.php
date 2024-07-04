@@ -122,6 +122,7 @@ class ApartmentController extends Controller
 
     public function edit(Apartment $apartment){
         $services = Service::orderBy('name', 'asc')->get();
+        $user = User::all();
         
         return view('admin.apartments.edit', compact('apartment','services','user'));
     }
