@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PrivateApartmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,17 +33,19 @@ Route::middleware(['auth','verified'])
         return view('admin.dashboard');
     })->name('dashboard');
 
+    Route::resource('userindex',PrivateApartmentController::class);
+    
     Route::resource('users', UserController::class);
-
+    
     Route::resource('sponsorship',SponsorshipController::class);
     
     Route::resource('apartments',ApartmentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('sponsorships',SponsorshipController::class);
-
+    
     // Added a route that uses the method delete to bring the parameter {apartment} to forceDestroy() in the ApartmentController 
     Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy');
-
+    
     Route::post('apartments/{apartment}/restore', [ApartmentController::class, 'restore'])->name('apartments.restore');
 });
 

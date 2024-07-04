@@ -15,6 +15,8 @@
         @if (request('trash'))
             <h2 class="text-start my-4">Appartamenti eliminati</h2>
             <p><a href="{{ route('admin.apartments.index') }}">Torna agli appartamenti</a></p>
+            
+
         @else
             <h2 class="text-start my-4">Appartamenti creati</h2>
             <a class="btn btn-primary mb-3" href="{{route('admin.apartments.create')}}"> Crea un nuovo appartamento</a>
