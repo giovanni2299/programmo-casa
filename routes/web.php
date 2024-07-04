@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PrivateApartmentController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +31,11 @@ Route::middleware(['auth','verified'])
 ->prefix('admin')
 ->group(function(){
     
-    Route::get('/', function () {
-        return view('admin.dashboard');
+    Route::get('/dashboard', function () {
+        $userid = Auth::id();
+        $apartments = Apartment::where('user_id',$userid)->get();
+
+        return view('admin.dashboard',compact('apartments'));
     })->name('dashboard');
 
     Route::resource('userindex',PrivateApartmentController::class);
