@@ -31,6 +31,10 @@ forms.forEach(form => {
 
 const city = document.querySelector('.my-input-address')
 let inputSuggestions = document.querySelector('.my-table-suggestions')
+const inputLat = document.querySelector('.latitude')
+const inputLon = document.querySelector('.longitude')
+
+let indexInputLatLon = null
 
 let inputCity = city.value
 
@@ -79,8 +83,8 @@ city.addEventListener('keyup', function (){
         let resultAddress = document.querySelectorAll('.result-address')
         const resultsLat = document.querySelectorAll('.lat')
         const resultsLon = document.querySelectorAll('.lon')
-        const inputLat = document.querySelector('.latitude')
-        const inputLon = document.querySelector('.longitude')
+        // const inputLat = document.querySelector('.latitude')
+        // const inputLon = document.querySelector('.longitude')
 
         if(resultAddress){
         
@@ -91,7 +95,7 @@ city.addEventListener('keyup', function (){
                     inputSuggestions.innerHTML = ''
                     inputLat.value = resultsLat[i].innerText.replace(/\s+/g, '')
                     inputLon.value = resultsLon[i].innerText.replace(/\s+/g, '')
-
+                    indexInputLatLon = i
                    // console.log(inputLat)
                 })
             }
@@ -103,4 +107,20 @@ city.addEventListener('keyup', function (){
     })
 })
 
+
+const formsCreate = document.querySelectorAll('.form-create-apartment')
+
+formsCreate.forEach( formCreate => {
+    formCreate.addEventListener('submit', (e) => {
+        
+        e.preventDefault()
+        
+        if(inputLat.value[indexInputLatLon] && inputLon.value[indexInputLatLon]) {
+            
+            formCreate.submit()
+        }else{
+            alert('Seleziona un indirizzo suggerito')
+        }
+    })
+})
 
