@@ -106,7 +106,7 @@ class ApartmentSeeder extends Seeder
 
             }elseif($new_apartment->rooms === 4) {
                 $new_apartment->bathrooms = 1;
-                $new_apartment->$faker->numberBetween(2,3);
+                $new_apartment->beds = $faker->numberBetween(2,3);
                 $new_apartment->sqr_meters = $faker->numberBetween(75,95);
 
             }elseif($new_apartment->rooms === 5) {
