@@ -10,8 +10,6 @@ import axios from 'axios'
 // Recupero il form 
 const forms = document.querySelectorAll('.destroy-form')
 
-// console.log(forms)
-
 // Ciclo ogni form per aggangiare l'ascolto dell'evento
 forms.forEach((form, i) => {
 
@@ -28,7 +26,7 @@ forms.forEach((form, i) => {
         const btnYes = document.querySelectorAll('.btn-yes');
         btnYes[i].addEventListener('click', (ev) =>{
             ev.preventDefault();
-            console.log('hai cliccato si')
+
             form.submit();
         })
 
@@ -36,17 +34,9 @@ forms.forEach((form, i) => {
         btnNo[i].addEventListener('click', (ev) =>{
             ev.preventDefault();
             
-            console.log('hai cliccato no');
-            
             modalDelete[i].classList.add('d-none');
             modalDelete[i].classList.remove('d-block');
         })
-        
-        // // Mostro un modale per chiedere la conferma dell'eliminazione 
-        // if(confirm('Vuoi eliminare questo post?')) {
-        //     // Se la risposta è positiva faccio ripartire il codice
-        //     form.submit()
-        // }
     })
 
 })
@@ -123,9 +113,9 @@ city.addEventListener('keyup', function (){
             }
         }
 
-        console.log(response.data.response);
-        console.log(resultAddress)
-        console.log(city.value)
+        // console.log(response.data.response);
+        // console.log(resultAddress)
+        // console.log(city.value)
     })
 })
 
