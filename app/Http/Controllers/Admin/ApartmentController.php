@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
+use App\Models\View;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,8 @@ class ApartmentController extends Controller
             $apartment_bin = 0;
             
         }
+        $my_ip = $request->ip();
+        // dd($my_ip);
         // dd(Auth::id());
         return view('admin.apartments.index', compact('apartments', 'apartment_bin'));
         
@@ -63,6 +66,7 @@ class ApartmentController extends Controller
 
         
         $form_data = $request->all();
+
         //recuper l'user
         $form_data['user_id'] = Auth::id();
         // dd($form_data);
@@ -92,12 +96,23 @@ class ApartmentController extends Controller
         return to_route('admin.apartments.show', $new_apartment);
     }
 
-    public function show(Apartment $apartment){
+    public function show(Apartment $apartment, View $view, Request $request){
 
         $user = Auth::user();
 
         // $apartment = Apartment::where('user_id', $user->id)->first();
 
+        // i take the ip_number from the visitor
+        $my_ip = $request->ip();
+        // i creat an istance from the object View
+        $new_view = new View;
+        // i make the attributes
+        $new_view->ip_number = $my_ip;
+        $new_view->apartment_id = $apartment['id'];
+        // i save the record inside the db
+        $new_view->save();
+
+        $view_date = View::where('ip_number', $my_ip);
         $apartment->load(['services', 'services.apartments']);
 
         return view('admin.apartments.show', compact('apartment'));
