@@ -20,7 +20,7 @@
         @else
             <h2 class="text-start my-4">Appartamenti creati</h2>
             <a class="btn btn-primary mb-3" href="{{route('admin.apartments.create')}}"> Crea un nuovo appartamento</a>
-            <p><a href="{{ route('admin.apartments.index', ['trash' => 1]) }}">Cestino (n)</a></p>
+            <p><a class="btn btn-danger" href="{{ route('admin.apartments.index', ['trash' => 1]) }}">Cestino (n)</a></p>
         @endif
 
         <div class="row gx-3 gy-3 text-center">
@@ -31,9 +31,12 @@
                         <div class="img_banner">
                             <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
                             <div class="banner">
-                                {{$apartment->title_apartment}}
-                                <div>
-                                    <a href="{{route('admin.apartments.show',$apartment)}}">Info Appartamento</a>
+                                <h3>
+                                    {{$apartment->title_apartment}}
+
+                                </h3>
+                                <div class="mt-3">
+                                    <a class="btn btn-primary" href="{{route('admin.apartments.show',$apartment)}}">Info Appartamento</a>
                                 </div>
                                 <div>
                                     {{-- it allows the creation of a button if the apartment is been soft deleted --}}
