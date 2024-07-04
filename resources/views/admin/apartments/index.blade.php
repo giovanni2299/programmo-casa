@@ -33,7 +33,7 @@
                             <div class="banner">
                                 {{$apartment->title_apartment}}
                                 <div>
-                                    <a href="{{route('admin.apartments.show',$apartment)}}">look apartment</a>
+                                    <a href="{{route('admin.apartments.show',$apartment)}}">Info Appartamento</a>
                                 </div>
                                 <div>
                                     {{-- it allows the creation of a button if the apartment is been soft deleted --}}

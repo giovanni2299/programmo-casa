@@ -16,35 +16,35 @@
                         <div>
                             <label for="title_apartment">Titolo del Appartamento:</label>
                         </div>
-                        <input type="text" name="title_apartment" class="form-control" id="title_apartment" placeholder="Inserisci il titolo del Appartamento">
+                        <input type="text" name="title_apartment" class="form-control" id="title_apartment" placeholder="Inserisci il titolo del Appartamento" value="{{ old('title_apartment') }}" required>
                     </div>
         
                     <div class="mb-3">
                         <div>
                             <label for="rooms">N° di Stanze:</label>
                         </div>
-                        <input type="number" name="rooms" class="form-control" id="rooms" placeholder="Inserisci le Stanze Presenti">
+                        <input type="number" name="rooms" class="form-control" id="rooms" placeholder="Inserisci le Stanze Presenti" value="{{ old('rooms') }}">
                     </div>
         
                     <div class="mb-3">
                         <div>
                             <label for="beds">N° di Letti:</label>
                         </div>
-                        <input type="number" name="beds" class="form-control" id="beds" placeholder="Inserisci i Letti Presenti">
+                        <input type="number" name="beds" class="form-control" id="beds" placeholder="Inserisci i Letti Presenti" value="{{ old('beds') }}">
                     </div>
         
                     <div class="mb-3">
                         <div>
                             <label for="bathrooms">N° di Bagni:</label>
                         </div>
-                        <input type="number" name="bathrooms" class="form-control" id="bathrooms" placeholder="Inserisci i Bagni Presenti">
+                        <input type="number" name="bathrooms" class="form-control" id="bathrooms" placeholder="Inserisci i Bagni Presenti" value="{{ old('bathrooms') }}">
                     </div>
         
                     <div class="mb-3">
                         <div>
                             <label for="sqr_meters">Metri Quadrati:</label>
                         </div>
-                        <input type="number" name="sqr_meters" class="form-control" id="sqr_meters" placeholder="Inserisci i Metri Quadrati">
+                        <input type="number" name="sqr_meters" class="form-control" id="sqr_meters" placeholder="Inserisci i Metri Quadrati" value="{{ old('sqr_meters') }}">
                     </div>
         
                     <div class="mb-3">
@@ -59,12 +59,12 @@
                         <div>
                             <label for="description">Descrizione dell appartamento:</label>
                         </div>
-                        <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali">
+                        <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali" value="{{ old('description') }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="complete_address" class="form-label">Indirizzo Completo</label>
-                        <input type="text" class="form-control my-input-address" id="complete_address" name="complete_address" required>
+                        <input type="text" class="form-control my-input-address" id="complete_address" name="complete_address" value="{{ old('complete_address') }}" required>
                         <div class="invalid-feedback">
                             Per favore inserisci una città valida.
                         </div>
@@ -98,7 +98,7 @@
             </div>
            
            
-            <button class="btn btn-primary">crea appartamento</button>
+            <button class="btn btn-primary">Crea appartamento</button>
         </form>
 
         @if ($errors->any())
