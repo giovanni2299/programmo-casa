@@ -93,7 +93,7 @@
             <h3>
                 Dove Soggiornerai
             </h3>
-            <img src="{{asset('img/'.$apartment->img_apartment)}}" alt="">
+            <img src="{{asset('storage/'. $apartment->img_apartment)}}" alt="">
             
             
         </div>
@@ -125,6 +125,7 @@
             qui ci sarà il carosello con le case correlate alla ricerca
         </div>
     </div>
+    @if ($apartment->user_id === Auth::id())
     <form class="delete-form destroy-form" action="{{ route('admin.apartments.destroy',$apartment) }}" method="POST">
                     
         @csrf
@@ -132,6 +133,8 @@
 
         <button class="btn btn-danger">Delete</button>
       
-      </form>
+     </form>
+    @endif
+   
 </div>
 @endsection

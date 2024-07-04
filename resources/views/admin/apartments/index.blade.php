@@ -15,6 +15,8 @@
         @if (request('trash'))
             <h2 class="text-start my-4">Appartamenti eliminati</h2>
             <p><a href="{{ route('admin.apartments.index') }}">Torna agli appartamenti</a></p>
+            
+
         @else
             <h2 class="text-start my-4">Appartamenti creati</h2>
             <a class="btn btn-primary mb-3" href="{{route('admin.apartments.create')}}"> Crea un nuovo appartamento</a>
@@ -35,37 +37,40 @@
                                 </div>
                                 <div>
                                     {{-- it allows the creation of a button if the apartment is been soft deleted --}}
+                                    @if ($apartment->user_id === Auth::id())
                                     @if($apartment->trashed())
-                                        {{-- it sent the apartment id to the Apartment Controller through the route --}}
-                                        <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
-                                        
-                                            @csrf
-                                            @method('DELETE')
-                                        
-                                            <button class="btn btn-danger my-3">Elimina definitivamente</button>
-                                        
-                                        </form>
+                                    {{-- it sent the apartment id to the Apartment Controller through the route --}}
+                                    <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
+                                    
+                                        @csrf
+                                        @method('DELETE')
+                                    
+                                        <button class="btn btn-danger my-3">Elimina definitivamente</button>
+                                    
+                                    </form>
 
-                                        <form class="delete-form" action="{{ route ('admin.apartments.restore',$apartment->id) }}"  method="POST">
-                                        
-                                            @csrf
-                                        
-                                            <button class="btn btn-warning my-3">Ripristina</button>
-                                        
-                                        </form>
+                                    <form class="delete-form" action="{{ route ('admin.apartments.restore',$apartment->id) }}"  method="POST">
+                                    
+                                        @csrf
+                                    
+                                        <button class="btn btn-warning my-3">Ripristina</button>
+                                    
+                                    </form>
 
 
-                                    {{-- it creates a button for the soft deleting method --}}
-                                    @else
-                                        <form class="delete-form destroy-form" action="{{ route ('admin.apartments.destroy',$apartment) }}"  method="POST">
-                                        
-                                            @csrf
-                                            @method('DELETE')
-                                        
-                                            <button class="btn btn-danger my-3">Elimina</button>
-                                        
-                                        </form>
+                                {{-- it creates a button for the soft deleting method --}}
+                                @else
+                                    <form class="delete-form destroy-form" action="{{ route ('admin.apartments.destroy',$apartment) }}"  method="POST">
+                                    
+                                        @csrf
+                                        @method('DELETE')
+                                    
+                                        <button class="btn btn-danger my-3">Elimina</button>
+                                    
+                                    </form>
                                     @endif
+                                    @endif
+                                   
                                 </div>
                             </div>
                         </div>

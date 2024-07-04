@@ -52,7 +52,7 @@
                         <div>
                             <label for="img_apartment">Foto del Appartamento:</label>
                         </div>
-                        <input type="image" name="img_apartment" class="form-control" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}">
+                        <input type="file" name="img_apartment" class="form-control" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}">
                     </div>
         
                     <div class="mb-3">
