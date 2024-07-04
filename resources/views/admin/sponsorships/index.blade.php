@@ -2,39 +2,31 @@
 
 @section('content')
 
-<section>
+<h5 class="d-flex justify-content-center mt-3">
+    Scopri di seguito i nostri abbonamenti e scegli quello più giusto per te in base alla durata della sponsorizzazione ed al suo prezzo. 
+</h5>
 
-    <h3>
-        scopri di seguito i nostri abbonamenti e scegli quello più giusto per te in base alla durata della sponsorizzazione ed al suo prezzo. 
-    </h3>
+<section class="d-flex justify-content-around">
 
     <!-- dico di prendere dalla tabella sponsorships ogni sponsor come dato -->
     @foreach($sponsorships as $sponsorship)
-        <div>
-            <ul>
-                <!-- dico di stampare dentro il list item il nome della sponsorship -->
-                <li>{{$sponsorship->name}}</li>
-                <!-- dico di stampare dentro il list item il prezzo della sponsorship -->
-                <li>{{$sponsorship->price}}€</li>
-                <!-- dico di stampare dentro il list item la durata della sponsorship -->
-                <li>{{$sponsorship->duration}}</li>
 
-                <!-- aggiungo il modulo per eliminare un abbonamento -->
-                <form class="delete-form destroy-form" action="{{ route('admin.sponsorships.destroy',$sponsorship) }}" method="POST">       
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger">Elimina</button>        
-                </form>
+        <div class="card bg-light mb-3 mt-5" style="max-width: 18rem;">
+            <div class="card-header text-center">
+                <h5>
+                    {{$sponsorship->name}}
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="card-title">prezzo: {{$sponsorship->price}}€</p>
+                <p class="card-text">Scopri i benefici di questo servizio per le prossime {{$sponsorship->duration}}H</p>
 
                 <button class="btn">
-                    <a class="btn btn-dark " href="{{route('admin.sponsorships.show', $sponsorship)}}"> Visualizza </a>
+                    <a class="btn btn-dark " href="{{route('admin.sponsorships.show', $sponsorship)}}"> Visualizza dettagli </a>
                 </button>
-                
-                <button class="btn">
-                    <a class="btn btn-dark " href="{{route('admin.sponsorships.edit', $sponsorship)}}"> Modifica </a>
-                </button>
-            </ul>       
+            </div>
         </div>
+
     @endforeach
 
 </section>
