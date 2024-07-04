@@ -17,7 +17,7 @@ class ApartmentSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $user_ids = User::pluck('id')->all();
+        $user_ids = User::all()->pluck('id')->all();
 
          // creo un array con delle vie di milano
          $apartment_streets = ['Via Vitorio Pisani 20124 Milano MI', //45.481487, 9.199866
@@ -102,6 +102,8 @@ class ApartmentSeeder extends Seeder
             // salviamo i dati
             $new_apartment->save();
 
+            // $random_user_ids = $faker->randomElements($user_ids, null); // [3,6,9]
+            // $new_apartment->user()->attach($random_user_ids);
 
 
 
