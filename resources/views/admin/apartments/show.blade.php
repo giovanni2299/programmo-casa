@@ -75,6 +75,18 @@
                 </p>
 
             </div>
+
+            <div class="mb-2">
+                <h5>
+                    indirizzo:
+
+                </h5>
+                <p>
+
+                    {{$apartment->complete_address}}
+                </p>
+
+            </div>
             
 
 
