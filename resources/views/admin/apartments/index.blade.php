@@ -68,6 +68,11 @@
                                         <button class="btn btn-danger my-3">Elimina</button>
                                     
                                     </form>
+                                    <div class="d-none modal-delete" >
+                                        <h5>Sei sicuro di voler eliminare?</h5>
+                                        <button class="btn-yes btn btn-outline-dark">si</button>
+                                        <button class="btn-no btn btn-outline-dark">no</button>
+                                    </div>
                                     @endif
                                     @endif
                                    
