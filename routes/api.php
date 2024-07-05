@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApartmentController;
 use App\Http\Controllers\Api\CallSearchAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/address', [CallSearchAddress::class, 'fetch']);
+Route::get('/apartments', [ApartmentController::class, 'index']);
