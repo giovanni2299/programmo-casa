@@ -6,6 +6,10 @@
 
 </div>
     <div class="container">
+        <div class="p-3 mb-3">
+            <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Crea Apartamento</a>
+
+        </div>
         <div class="row gx-2 gy-2 text-center">
             @foreach ($apartments as $apartment)
             <div class="col-12 col-md-6 col-lg-3">

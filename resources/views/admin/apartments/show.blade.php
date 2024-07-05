@@ -90,12 +90,28 @@
                 </p>
 
             </div>
+
+            <div class="mb-2">
+                <h5>
+                    Sponsorizzazione Attiva:
+
+                </h5>
+                <p>
+                    @foreach ($apartment->sponsorships as $sponosorship)
+                        {{$sponosorship->name}}
+                        
+                    @endforeach
+
+                </p>
+
+            </div>
             
 
 
         </div>
 
         <div class="services_container mb-3">
+            <h5>Servizi Disponibili:</h5>
             @foreach ($apartment->services as $service)
             <div>
                 {{$service->name}}
