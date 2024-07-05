@@ -19,8 +19,9 @@ return new class extends Migration
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             // inseriamo nella tabella ponte i parametri "start_date" e "end_date"
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            // $table->dateTime('start_date');
+            // $table->dateTime('end_date');
+            $table->timestamps();
 
             $table->primary(['sponsorship_id', 'apartment_id']);
         });
