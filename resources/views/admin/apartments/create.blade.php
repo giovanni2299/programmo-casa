@@ -81,7 +81,7 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="description">Descrizione dell'appartamento:</label>
+                            <label for="description">Descrizione dell'Appartamento:</label>
                         </div>
                         <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali" value="{{ old('description') }}">
 
