@@ -121,6 +121,11 @@ class ApartmentController extends Controller
     }
 
     public function edit(Apartment $apartment){
+
+        if($apartment->user_id !== Auth::id()){
+            return abort(401);
+        }
+
         $services = Service::orderBy('name', 'asc')->get();
         $user = User::all();
         
