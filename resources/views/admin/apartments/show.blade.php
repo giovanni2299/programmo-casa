@@ -154,16 +154,47 @@
             qui ci sarà il carosello con le case correlate alla ricerca
         </div> --}}
     </div>
-    @if ($apartment->user_id === Auth::id())
-    <form class="delete-form destroy-form" action="{{ route('admin.apartments.destroy',$apartment) }}" method="POST">
-                    
-        @csrf
-        @method('DELETE')
+    <div>
+        {{-- it allows the creation of a button if the apartment is been soft deleted --}}
+        @if ($apartment->user_id === Auth::id())
+        @if($apartment->trashed())
+        {{-- it sent the apartment id to the Apartment Controller through the route --}}
+        {{-- <form class="delete-form destroy-form" action="{{ route ('admin.apartments.forceDestroy',$apartment->id) }}"  method="POST">
+        
+            @csrf
+            @method('DELETE')
+        
+            <button class="btn btn-danger my-3">Elimina definitivamente</button>
+        
+        </form> --}}
 
-        <button class="btn btn-danger">Delete</button>
-      
-     </form>
-    @endif
-   
+        <form class="delete-form" action="{{ route ('admin.apartments.restore',$apartment->id) }}"  method="POST">
+        
+            @csrf
+        
+            <button class="btn btn-warning my-3">Ripristina</button>
+        
+        </form>
+
+
+    {{-- it creates a button for the soft deleting method --}}
+    @else
+        <form class="delete-form destroy-form" action="{{ route ('admin.apartments.destroy',$apartment) }}"  method="POST">
+        
+            @csrf
+            @method('DELETE')
+        
+            <button class="btn btn-danger my-3">Elimina</button>
+        
+        </form>
+        <div class="d-none modal-delete position-fixed top-50 start-50 translate-middle rounded p-3 ms_bg-light">
+            <h5 class=" ms_font-size-title">Sei sicuro di voler eliminare?</h5>
+            <button class="ms_font-size ms_border ms_hover-si btn-yes btn btn-outline-dark">si</button>
+            <button class=" ms_font-size ms_border ms_hover-no btn-no btn btn-outline-dark">no</button>
+        </div>
+        @endif
+        @endif
+       
+    </div>
 </div>
 @endsection
