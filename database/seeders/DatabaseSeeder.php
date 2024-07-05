@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             Apartment_ServiceSeeder::class,
             ViewSeeder::class,
             MessageSeeder::class,
+            Apartment_SponsorshipSeeder::class,
 
         ]);
     }
