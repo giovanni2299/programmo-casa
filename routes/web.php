@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\PrivateApartmentController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('http://localhost:5173');
+    return view('welcome');
 });
 
 
