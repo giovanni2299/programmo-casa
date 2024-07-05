@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center">
+    <div class="container">
         <h1 class="my-3">Aggiungi un appartamento</h1>
     </div>
     <div class="container">

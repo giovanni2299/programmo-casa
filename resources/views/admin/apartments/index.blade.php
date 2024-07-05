@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container text-center">
-    <h1>Programmo Casa</h1>
+    {{-- <h1>Programmo Casa</h1> --}}
     
     <div class="container mb-5">
         <div class="slider">
-            qui ci va lo slider
+            {{-- qui ci va lo slider --}}
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
             <p><a class="btn btn-danger" href="{{ route('admin.apartments.index', ['trash' => 1]) }}">Cestino (n)</a></p>
         @endif
 
-        <div class="row gx-3 gy-3 text-center">
+        <div class="row gx-3 gy-3 text-center my-3">
             @foreach ($apartments as $apartment)
             <div class="col-12 col-lg-6 position-relative ">
                 <div class="card my-card-apartment h-100">
