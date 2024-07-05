@@ -175,6 +175,7 @@ class ApartmentController extends Controller
         }
         return back();
     }
+    
 // FORCE DESTROY COMMENTED BECAUSE NON REQUESTD FROM PM
     // // added a function that receives the parameter id
     // public function forceDestroy($id){
