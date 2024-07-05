@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container p-3">
+
     <div>
         @if ($apartment->user_id === Auth::id())
-        <a class="btn btn-primary" href="{{route('admin.apartments.edit',$apartment)}}"> Modifica Appartamento</a>
-            
+            <a class="btn btn-primary" href="{{route('admin.apartments.edit',$apartment)}}"> Modifica Appartamento</a>
         @endif
-
     </div>
+
     <div class="row mt-3 mb-3">
         <div class="col 6">
             <h1>
@@ -16,11 +16,9 @@
             </h1>
         </div>
 
-        <div class="col 6">
-            
-        </div>
-
+        <div class="col 6"></div>
     </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <img src="{{asset('storage/'.$apartment->img_apartment)}}" alt="">
@@ -70,8 +68,7 @@
             <div class="mb-2">
                 <h5>
                     M²:
-
-                </h5>
+</h5>
                 <p>
 
                     {{$apartment->sqr_meters}}
@@ -81,7 +78,7 @@
 
             <div class="mb-2">
                 <h5>
-                    indirizzo:
+                    Indirizzo:
 
                 </h5>
                 <p>
@@ -112,12 +109,13 @@
 
         <div class="services_container mb-3">
             <h5>Servizi Disponibili:</h5>
+            <div class="row">
             @foreach ($apartment->services as $service)
-            <div>
-                {{$service->name}}
-
-            </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    {{$service->name}}
+                </div>
             @endforeach
+            </div>
         </div>
 
         <div class="mb-3">
@@ -129,7 +127,7 @@
             
         </div>
 
-        <div class="container reviews mb-3">
+        {{-- <div class="container reviews mb-3">
             <div class="row">
                 <div class="col-4">
                     ciao
@@ -150,11 +148,11 @@
                     ciao
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="other_apartments">
+        {{-- <div class="other_apartments">
             qui ci sarà il carosello con le case correlate alla ricerca
-        </div>
+        </div> --}}
     </div>
     @if ($apartment->user_id === Auth::id())
     <form class="delete-form destroy-form" action="{{ route('admin.apartments.destroy',$apartment) }}" method="POST">

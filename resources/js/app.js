@@ -122,6 +122,7 @@ city.addEventListener('keyup', function (){
 
 const formsCreate = document.querySelectorAll('.form-create-apartment')
 
+// logic for the address selection
 formsCreate.forEach( formCreate => {
     formCreate.addEventListener('submit', (e) => {
         
