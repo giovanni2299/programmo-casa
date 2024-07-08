@@ -149,8 +149,6 @@ class ApartmentController extends Controller
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:5|numeric',
             'img_apartment' => 'nullable|image|max:2048',
-            // 'user_id'=>'required|exist:users,id',
-            // 'img_apartment'=>'required|image|max:250',
             'description'=>'nullable|string',
             
         ]);
