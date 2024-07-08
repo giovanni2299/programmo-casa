@@ -80,14 +80,14 @@ city.addEventListener('keyup', function (){
 
                 inputSuggestions.innerHTML += `
                     <tr>
-                        <td class='result-address'>${el.address.country}, ${el.address.municipality}, ${ el.address.countrySubdivisionName}, ${ el.address.streetName}, 
+                        <td class='result-address'>${el.address.freeformAddress}</td>
                     </tr>
                     <span class='lat' hidden>
                         ${el.position.lat}
                     </span>
                     <span class='lon' hidden>
                         ${el.position.lon}
-                    </span></td>
+                    </span>
                     `
             })
         }
