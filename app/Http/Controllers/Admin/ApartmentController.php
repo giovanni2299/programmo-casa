@@ -53,14 +53,11 @@ class ApartmentController extends Controller
 
         $request->validate([
             'title_apartment'=>'required|max:250|string',
-            'rooms'=>'required|min:2|numeric',
+            'rooms'=>'required|min:1|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
-            'sqr_meters'=>'required|min:15|numeric',
+            'sqr_meters'=>'required|min:5|numeric',
             'img_apartment' => 'nullable|image|max:2048',
-            // 'user_id'=>'required|exist:users,id',
-            // validate the request for the file
-            // 'file'=>'required|file|mimes:jpg,png|max:2048',
             'description'=>'nullable|string',
             
         ]);
@@ -143,10 +140,10 @@ class ApartmentController extends Controller
 
         $request->validate([
             'title_apartment'=>'required|max:250|string',
-            'rooms'=>'required|min:2|numeric',
+            'rooms'=>'required|min:1|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
-            'sqr_meters'=>'required|min:70|numeric',
+            'sqr_meters'=>'required|min:5|numeric',
             'img_apartment' => 'nullable|image|max:2048',
             // 'user_id'=>'required|exist:users,id',
             // 'img_apartment'=>'required|image|max:250',
