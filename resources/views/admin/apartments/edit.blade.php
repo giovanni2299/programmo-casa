@@ -13,11 +13,12 @@
 
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6 flex-grow-1">
+                    <p><strong>I campi che presentano * sono obligatori</strong></p>
                     <div class="mb-3">
                         <div>
-                            <label for="title_apartment">Titolo dell'Appartamento:</label>
+                            <label for="title_apartment">* Titolo dell'Appartamento:</label>
                         </div>
-                        <input type="text" name="title_apartment" class="form-control" id="title_apartment" placeholder="Inserisci il titolo del Appartamento" value="{{old('name',$apartment->title_apartment)}}">
+                        <input type="text" name="title_apartment" class="form-control my-error_check" id="title_apartment" placeholder="Inserisci il titolo del Appartamento" value="{{old('name',$apartment->title_apartment)}}">
 
                         @foreach ($errors->get('title_apartment') as $message)
                         <li class="alert alert-danger">{{ $error }}</li>
@@ -26,9 +27,9 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="rooms">N° di Stanze:</label>
+                            <label for="rooms">* N° di Stanze:</label>
                         </div>
-                        <input type="number" name="rooms" class="form-control" id="rooms" placeholder="Inserisci le Stanze Presenti" value="{{old('rooms',$apartment->rooms)}}">
+                        <input type="number" name="rooms" class="form-control my-error_check" id="rooms" placeholder="Inserisci le Stanze Presenti" value="{{old('rooms',$apartment->rooms)}}">
 
                         @foreach ($errors->get('rooms') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -37,9 +38,9 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="beds">N° di Letti:</label>
+                            <label for="beds">* N° di Camere da Letto:</label>
                         </div>
-                        <input type="number" name="beds" class="form-control" id="beds" placeholder="Inserisci i Letti Presenti" value="{{old('beds',$apartment->beds)}}">
+                        <input type="number" name="beds" class="form-control my-error_check" id="beds" placeholder="Inserisci i Letti Presenti" value="{{old('beds',$apartment->beds)}}">
 
                         @foreach ($errors->get('beds') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -48,9 +49,9 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="bathrooms">N° di Bagni:</label>
+                            <label for="bathrooms">* N° di Bagni:</label>
                         </div>
-                        <input type="number" name="bathrooms" class="form-control" id="bathrooms" placeholder="Inserisci i Bagni Presenti" value="{{old('bathrooms',$apartment->bathrooms)}}">
+                        <input type="number" name="bathrooms" class="form-control my-error_check" id="bathrooms" placeholder="Inserisci i Bagni Presenti" value="{{old('bathrooms',$apartment->bathrooms)}}">
 
                         @foreach ($errors->get('bathrooms') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -59,9 +60,9 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="sqr_meters">Metri Quadrati:</label>
+                            <label for="sqr_meters">* Metri Quadrati:</label>
                         </div>
-                        <input type="number" name="sqr_meters" class="form-control" id="sqr_meters" placeholder="Inserisci i Metri Quadrati" value="{{old('sqr_meters',$apartment->sqr_meters)}}">
+                        <input type="number" name="sqr_meters" class="form-control my-error_check" id="sqr_meters" placeholder="Inserisci i Metri Quadrati" value="{{old('sqr_meters',$apartment->sqr_meters)}}">
 
                         @foreach ($errors->get('sqr_meters') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -70,9 +71,9 @@
         
                     <div class="mb-3">
                         <div>
-                            <label for="img_apartment">Foto dell'Appartamento:</label>
+                            <label for="img_apartment">* Foto dell'Appartamento:</label>
                         </div>
-                        <input type="file" name="img_apartment" class="form-control" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}" accept="image/*">
+                        <input type="file" name="img_apartment" class="form-control my-error_check" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}" accept="image/*">
 
                         @foreach ($errors->get('img_apartment') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -83,7 +84,7 @@
                         <div>
                             <label for="description">Descrizione dell'Appartamento:</label>
                         </div>
-                        <input type="text" name="description" class="form-control" id="description" placeholder="Inserisci Info Generali" value="{{old('description',$apartment->description)}}">
+                        <input type="text" name="description" class="form-control my-error_check" id="description" placeholder="Inserisci Info Generali" value="{{old('description',$apartment->description)}}">
 
                         @foreach ($errors->get('description') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
@@ -91,8 +92,8 @@
                     </div>
         
                     <div class="mb-3">
-                        <label for="complete_address">Indirizzo Completo:</label>
-                        <input type="text" name="complete_address" class="form-control my-input-address" id="complete_address" pplaceholder="Inserisci la Via e scegli tra quelle suggerite" value="{{old('complete_address',$apartment->complete_address)}}">
+                        <label for="complete_address">* Indirizzo Completo:</label>
+                        <input type="text" name="complete_address" class="form-control my-error_check my-input-address" id="complete_address" pplaceholder="Inserisci la Via e scegli tra quelle suggerite" value="{{old('complete_address',$apartment->complete_address)}}">
                         <table>
                             <tbody class="my-table-suggestions">
                                 
