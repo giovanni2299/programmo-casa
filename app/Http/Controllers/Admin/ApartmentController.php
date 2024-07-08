@@ -61,6 +61,7 @@ class ApartmentController extends Controller
             // 'user_id'=>'required|exist:users,id',
             // validate the request for the file
             // 'file'=>'required|file|mimes:jpg,png|max:2048',
+            'services'=>'required',
             'description'=>'nullable|string',
             
         ]);
@@ -68,7 +69,7 @@ class ApartmentController extends Controller
         
         $form_data = $request->all();
 
-
+        // dd($form_data);
         
         $form_data['user_id'] = Auth::id();
         // dd($form_data);
