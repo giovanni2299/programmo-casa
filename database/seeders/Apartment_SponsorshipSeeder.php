@@ -22,17 +22,45 @@ class Apartment_SponsorshipSeeder extends Seeder
         $ids_sposnorship = $sponsorships->pluck('id')->all();
 
         $apartments = Apartment::all();
-        
+        // $ids_apartment = $apartments->pluck('id')->all();
+
+        // function randomSponsorshipsOnOff($numAppartments, Faker $faker){
+        //     $randomArray = [];
+        //     for($i = 0; $i < $numAppartments; $i++){
+        //         $randomArray[$i] = $faker->radomNumber(0,1);
+        //     }
+        //     return $randomArray;
+        // }
+
+        // $randomOnOffApartments = randomSponsorshipsOnOff(count($apartments));
+
         foreach($apartments as $apartment ){
 
-            $random_sposnorships = $faker->randomElements($ids_sposnorship);
-            // @dd($random_services);
-
-            foreach($random_sposnorships as $sponsorship){
-                $apartment->sponsorships()->attach($sponsorship);
-                $apartment->save();
-                
+            
+            $random_sponsorships = $faker->randomElements($ids_sposnorship);
+                // @dd($random_services);
+    
+                foreach($random_sponsorships as $sponsorship){
+                        $apartment->sponsorships()->attach($sponsorship);
+                        $apartment->save();
+                }
             }
+            
         }
-    }
+        
+        
+    //     foreach($sponsorships as $sponsorship){
+    //         $sposnosrship_apartment = $sponsorship->apartments();
+    //         $random_apartments = $faker->randomElements($ids_apartment);
+    //         foreach($random_apartments as $apartment){
+    //             if($sposnosrship_apartment !== $random_apartments ){
+    //                 $sposnosrship_apartment->attach($apartment);
+    //                 $sponsorship->save();
+    
+    //             }
+    
+                        
+    //         }
+    //     }
+    // }
 }
