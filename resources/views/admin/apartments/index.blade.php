@@ -73,10 +73,10 @@
                                         <button class="btn btn-danger my-3">Elimina</button>
                                     
                                     </form>
-                                    <div class="d-none modal-delete position-absolute top-50 start-50 translate-middle bg-body rounded p-3" >
+                                    <div class="d-none modal-delete position-absolute top-50 start-50 translate-middle rounded p-3 ms_bg-light" >
                                         <h5>Sei sicuro di voler eliminare?</h5>
-                                        <button class="btn-yes btn btn-outline-dark">si</button>
-                                        <button class="btn-no btn btn-outline-dark">no</button>
+                                        <button class="ms_font-size ms_border ms_hover-si btn-yes btn btn-outline-dark">si</button>
+                                        <button class="ms_font-size ms_border ms_hover-no btn-no btn btn-outline-dark">no</button>
                                     </div>
                                     @endif
                                     @endif
