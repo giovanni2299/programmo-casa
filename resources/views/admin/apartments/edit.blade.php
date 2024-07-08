@@ -72,7 +72,7 @@
                         <div>
                             <label for="img_apartment">Foto dell'Appartamento:</label>
                         </div>
-                        <input type="file" name="img_apartment" class="form-control" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}">
+                        <input type="file" name="img_apartment" class="form-control" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}" accept="image/*">
 
                         @foreach ($errors->get('img_apartment') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
