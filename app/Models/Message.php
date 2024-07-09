@@ -14,6 +14,6 @@ class Message extends Model
     }
 
     protected $fillable = [
-        'name', 'surname', 'email_sender', 'phone_number', 'text'
+        'name', 'surname', 'email_sender', 'phone_number', 'text', 'apartment_id'
     ];
 }

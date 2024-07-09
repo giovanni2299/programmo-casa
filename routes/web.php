@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SponsorshipController;
 use App\Http\Controllers\Admin\ApartmentController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PrivateApartmentController;
@@ -52,6 +53,9 @@ Route::middleware(['auth','verified'])
     Route::delete('apartments/{apartment}/force', [ApartmentController::class, 'forceDestroy'])->name('apartments.forceDestroy');
     
     Route::post('apartments/{apartment}/restore', [ApartmentController::class, 'restore'])->name('apartments.restore');
+
+    Route::get('messages',[ MessageController ::class, 'index'])->name('messages');
+    Route::get('messages/{message}',[ MessageController ::class, 'show'])->name('messages.show');
 });
 
 Route::middleware('auth')->group(function () {
@@ -59,5 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

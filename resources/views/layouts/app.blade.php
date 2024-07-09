@@ -62,6 +62,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/dashboard') }}">{{ __('I Miei Appartamenti') }}</a>
                         </li>
+                        @if (Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/admin/messages') }}">{{ __('I Miei Messaggi') }}</a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
