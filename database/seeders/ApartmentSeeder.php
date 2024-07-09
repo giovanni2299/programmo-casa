@@ -242,7 +242,7 @@ class ApartmentSeeder extends Seeder
 
         }
 
-        // for($i = 0; $i < 30; $i++){
+        // for($i = 0; $i < 20; $i++){
         //     $new_apartment = new Apartment();
         //     $address = $faker->streetAddress();
 
