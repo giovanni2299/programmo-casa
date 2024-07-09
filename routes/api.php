@@ -24,5 +24,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('/address', [CallSearchAddress::class, 'fetch']);
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/search', [ApartmentController::class, 'search']);
-
 Route::post('/messages', [MessageController::class, 'store']);
+Route::get('/suggestions', [CallSearchAddress::class, 'fetch']);
