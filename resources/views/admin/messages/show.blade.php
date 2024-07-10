@@ -14,7 +14,11 @@
     <h5>Numero di telefono</h5>
     <p>{{ $message->phone_number }}</p>
     <h5>Appartamento d'Interesse</h5>
+    {{-- se la variabile $apartment esiste allora mostra il link  --}}
+    @isset($apartment[0] )
     <a href="{{ route('admin.apartments.show', $apartment[0]) }}">{{ $apartment[0]->title_apartment }}</a>
+        
+    @endisset
     {{-- @dump($apartment[0]) --}}
   </div>
   <hr>

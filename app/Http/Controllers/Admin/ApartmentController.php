@@ -52,7 +52,7 @@ class ApartmentController extends Controller
         // dd($user);
 
         $request->validate([
-            'title_apartment'=>'required|max:250|string',
+            'title_apartment'=>'required|min:5|max:250|string',
             'rooms'=>'required|min:1|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
@@ -143,7 +143,7 @@ class ApartmentController extends Controller
 
 
         $request->validate([
-            'title_apartment'=>'required|max:250|string',
+            'title_apartment'=>'required|min:5|max:250|string',
             'rooms'=>'required|min:1|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',

@@ -32,7 +32,7 @@ class MessageSeeder extends Seeder
 
             $new_message = new Message();
 
-            // $new_message->apartment_id = $faker->randomElement($ids);
+            $new_message->apartment_id = $faker->randomElement($ids);
             // popolo la colonna delle mail con dati random
             $new_message->email_sender = $faker->email();
             // popolo la colonna del testo del messaggio con frasi random
