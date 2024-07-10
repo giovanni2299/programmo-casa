@@ -19,6 +19,15 @@ class ApartmentController extends Controller
         ]);
     }
 
+    public function show(Apartment $apartment){
+
+        $apartment->load('services');
+
+        return response()->json([
+            'apartment' => $apartment
+        ]);
+    }
+
     public function search(Request $request){
         // $zone = $request->input('zone');
         $min_lat = $request->input('min_lat');
