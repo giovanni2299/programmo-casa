@@ -15,15 +15,14 @@ class ServiceSeeder extends Seeder
     public function run(Faker $faker): void
     {
         // creiamo un array di servizi aggiuntivi
-        $service_name = ['WI-FI','PARCHEGGIO','PISCINA','SPA','VISTA MARE','VISTA LAGO','VISTA FIUME','ESSENZIALI','TV',
-        'BALCONE','ANIMALI','RECEPTION','AMMOBILIATO','NON AMMOBILIATO','ASCENSORE','CLIMATIZZATORE'];
+        $service_names = ['wi-fi','parcheggio','piscina','spa','vista mare','vista lago','vista fiume','essenziali','tv','balcone','animali','reception','ammobiliato','non ammobiliato','ascensore','climatizzatore'];
         
         // cicliamo i vari servizi
-        for($i = 0; $i < 16; $i++ ){
+        for($i = 0; $i < count($service_names); $i++ ){
             $new_service = new Service();
 
             // popolo la colonna dei nomi dei servizi con nomi presi dall'array creato prima 
-            $new_service->name = $service_name[$i];
+            $new_service->name = $service_names[$i];
             // salvo i servizi
             $new_service->save();
         }
