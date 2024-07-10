@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\ApartmentController;
 use App\Http\Controllers\Api\CallSearchAddress;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\ServicesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,4 @@ Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/search', [ApartmentController::class, 'search']);
 Route::post('/messages', [MessageController::class, 'store']);
 Route::get('/suggestions', [CallSearchAddress::class, 'fetch']);
+Route::get('/services', [ServicesController::class, 'bringServices']);
