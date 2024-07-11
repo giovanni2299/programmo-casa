@@ -84,9 +84,9 @@ class ApartmentController extends Controller
 
         $servizio = ["pasta scotta", "wi-fi", "animali"];
 
-        $apartments = Apartment::whereHas('services', function ($query) use ($servizio) {
-            $query->whereIn('name', $servizio);
-        }, '=', count($servizio))->get();
+        $apartments = Apartment::whereHas('services', function ($query) use ($serviceArray) {
+            $query->whereIn('id', $serviceArray);
+        }, '=', count($serviceArray))->get();
 
         
 
