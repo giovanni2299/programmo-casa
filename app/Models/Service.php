@@ -12,6 +12,10 @@ class Service extends Model
     public function apartments(){
         return $this->belongsToMany(Apartment::class);
     }
+    
+    // return $this->belongsToMany(Badge::class)
+    //     ->where('rank', 'gold')
+    //     ->orderByPivot('created_at', 'desc');
 
     protected $fillable = [
         'name', 'description'
