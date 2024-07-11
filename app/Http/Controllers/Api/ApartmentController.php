@@ -64,17 +64,30 @@ class ApartmentController extends Controller
         //     $query->whereIn('id', $serviceArray);
         // })->count($serviceIds)->get();
 
-        $apartments = DB::table('apartments')
-        ->join('services', 'apartment_service.service_id', '=', 'service.id')
-        ->join('apartment', 'apartment_service.apartment_id', '=', 'apartment.id')
-        ->select('apartment.*', 'services.*')->get();
+        // $apartments = DB::table('apartments')
+        // ->join('services', 'apartment_service.service_id', '=', 'service.id')
+        // ->join('apartment', 'apartment_service.apartment_id', '=', 'apartment.id')
+        // ->select('apartment.*', 'services.*')->get();
 
+        // $apartments = Apartment::with('services')
+        // ->get();
+        //--------------------------------------------
+
+        $servizio = ["pasta scotta", "wi-fi", "animali"];
+
+        $apartments = Apartment::whereHas('services', function ($query) use ($servizio) {
+            $query->whereIn('name', $servizio);
+        })->get();
+
+        
+
+        //--------------------------------------------
 
 
         // $result = Pool::join('Contribution', 'Pool.id', '=', 'Contribution.pool_id')
         // ->join('Contributer', 'Contribution.contributer_id', '=', 'Contributer.id')->get();
 
-        dd($apartments);
+        // dd($apartments);
 
         return response()->json([
             'success' => true,
