@@ -51,11 +51,11 @@ class ApartmentController extends Controller
         $content = json_decode($request->getContent(), true);
 
 
-        // $min_lat = $content['min_lat'];
-        // // dd($min_lat);
-        // $max_lat = $content['max_lat'];
-        // $min_lon = $content['min_lon'];
-        // $max_lon = $content['max_lon'];
+        $min_lat = $content['min_lat'];
+        // dd($min_lat);
+        $max_lat = $content['max_lat'];
+        $min_lon = $content['min_lon'];
+        $max_lon = $content['max_lon'];
         $serviceArray = $content['activeFilters'];
 
         // $apartments = DB::table('apartments')->select('apartments.*')
@@ -84,9 +84,13 @@ class ApartmentController extends Controller
 
         $servizio = ["pasta scotta", "wi-fi", "animali"];
 
-        $apartments = Apartment::whereHas('services', function ($query) use ($servizio) {
-            $query->whereIn('name', $servizio);
-        }, '=', count($servizio))->get();
+        $apartments = Apartment::where( 'latitude', '>', $min_lat ) 
+        ->where('latitude', '<', $max_lat )
+        ->where('longitude', '<', $max_lon )
+        ->where('longitude', '>', $min_lon )
+        ->whereHas('services', function ($query) use ($serviceArray) {
+            $query->whereIn('id', $serviceArray);
+        }, '=', count($serviceArray))->get();
 
         
 
