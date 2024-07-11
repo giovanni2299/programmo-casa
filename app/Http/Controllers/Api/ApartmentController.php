@@ -35,4 +35,32 @@ class ApartmentController extends Controller
         
         return response()->json($apartments);
     }
+
+    public function advancedSearch(Request $request){
+
+        $jsonArray = json_decode($request,true);
+        $content = json_decode($request->getContent(), true);
+
+        
+        // dd($content);
+        // header('Content-Type:application/json');
+
+        // $min_lat = $request->input('min_lat');
+        // // dd($all_request);
+        // $max_lat = $request->input('max_lat');
+        // $min_lon = $request->input('min_lon');
+        // $max_lon = $request->input('max_lon');
+
+        // $apartments = DB::table('apartments')->with('services')
+        // ->where( 'latitude', '>', $min_lat) 
+        // ->where('latitude', '<', $max_lat)
+        // ->where('longitude', '<', $max_lon )
+        // ->where('longitude', '>', $min_lon )
+        // ->where('');
+
+        return response()->json([
+            'success' => true,
+            'response' => $content
+        ]);
+    }
 }
