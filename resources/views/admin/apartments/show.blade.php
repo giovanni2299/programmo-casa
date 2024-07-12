@@ -89,18 +89,27 @@
             </div>
 
             <div class="mb-2">
+                @foreach ($apartment->sponsorships as $sponosorship)
+                @if ($apartment->sponsorships != '0')
                 <h5>
                     Sponsorizzazione Attiva:
 
                 </h5>
+                
                 <p>
-                    @foreach ($apartment->sponsorships as $sponosorship)
+                    
+                    
+                        
+                        
                         {{$sponosorship->name}}
                         
-                    @endforeach
+                    
+                        
+                   
 
                 </p>
-
+                @endif
+                @endforeach
             </div>
             
 
