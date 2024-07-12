@@ -103,6 +103,10 @@ class ApartmentController extends Controller
 
         $user = Auth::user();
 
+        if($apartment->user_id !== Auth::id()){
+            return abort(401);
+        }
+
         // $apartment = Apartment::where('user_id', $user->id)->first();
 
         // i take the ip_number from the visitor
