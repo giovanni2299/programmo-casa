@@ -57,7 +57,7 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:5|numeric',
-            'img_apartment' => 'nullable|image|max:2048',
+            'img_apartment' => 'required|image|max:2048',
             // 'user_id'=>'required|exist:users,id',
             // validate the request for the file
             // 'file'=>'required|file|mimes:jpg,png|max:2048',
@@ -142,6 +142,7 @@ class ApartmentController extends Controller
         // if ($apartment->user_id !== Auth::id()) {
         //     return to_route('admin.apartments.index');
         // }
+        // $apartment = Apartment::find($id);
 
         $users = User::all()->pluck('id');
 
@@ -152,19 +153,44 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:5|numeric',
-            'img_apartment' => 'nullable|image|max:2048',
+            'img_apartment' => 'required|image|max:2048',
             'description'=>'nullable|string',
+            'services'=> 'exists:services:id'
             
         ]);
+
+
+       
+
+
+        // dd($request->all());
 
         $form_data = $request->all();
 
         //recuper l'user
         $form_data['user_id'] = Auth::id();
 
-        
+        if($request->hasFile('img_apartment')){
 
+            $image_path = Storage::disk('public')->put('img_apartment', $request->img_apartment);
+            $form_data['img_apartment'] = $image_path;
+
+            if($apartment->img_apartment){
+                Storage::disk('public')->delete($apartment->img_apartment);
+            }
+
+        }
+
+        
         $apartment->update($form_data);
+        
+        if($request->has('service')){
+            $apartment->services()->sync($request->service);
+        }else{
+            $apartment->services()->detach();
+        }
+
+        
 
         return to_route('admin.apartments.show', $apartment);
     }
