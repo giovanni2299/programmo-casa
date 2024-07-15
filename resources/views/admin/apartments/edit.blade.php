@@ -3,6 +3,10 @@
 @section('content')
     <div class="container">
         <h1 class="my-3">Modifica un appartamento</h1>
+        
+        <!-- @isset($checkAddress) -->
+        <input type="hidden" id="checkAddress" value="{{$checkAddress}}"></input>
+        <!-- @endisset -->
     </div>
     <div class="container">
         <form class="form-create-apartment" action="{{ route('admin.apartments.update',$apartment) }}" method="POST" enctype="multipart/form-data">
@@ -68,12 +72,17 @@
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>
                         @endforeach
                     </div>
+
+                    @if($apartment->img_apartment)
+                        <img class="current-image" src="/storage/{{ $apartment->img_apartment }}" width="100">
+                        <p class="click-on-image d-none" >✓ Immagine selezionata</p>
+                    @endif
         
                     <div class="mb-3">
                         <div>
                             <label for="img_apartment">* Foto dell'Appartamento:</label>
                         </div>
-                        <input type="file" name="img_apartment" class="form-control my-error_check" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment',$apartment->img_apartment)}}" accept="image/*">
+                        <input type="file" name="img_apartment" class="form-control my-error_check" id="img_apartment" placeholder="Inserisci foto dell Appartamento" value="{{old('img_apartment', $apartment->img_apartment)}}" accept="image/*">
 
                         @foreach ($errors->get('img_apartment') as $message)
                             <li class="my-3 alert alert-danger py-1">{{ $message }}</li>

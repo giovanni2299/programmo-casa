@@ -45,6 +45,7 @@ const city = document.querySelector('.my-input-address')
 let inputSuggestions = document.querySelector('.my-table-suggestions')
 const inputLat = document.querySelector('.latitude')
 const inputLon = document.querySelector('.longitude')
+const checkAddress = document.getElementById('checkAddress')
 
 let indexInputLatLon = null
 
@@ -60,6 +61,9 @@ city.addEventListener('input', function(){
 })
 
 city.addEventListener('keyup', function (){
+    checkAddress.value = 0
+
+    console.log(checkAddress.value)
 
     if (cancelToken) {
         cancelToken.cancel();
@@ -142,19 +146,19 @@ formsCreate.forEach( formCreate => {
         const complete_address = document.getElementById('complete_address');
         const allInputFields = document.querySelectorAll('.my-error_check');
 
-        
-
-
-
         e.preventDefault()
         
-        if(!inputLat.value[indexInputLatLon] && !inputLon.value[indexInputLatLon]) {
-            
-            let obj = {
-                field: 'complete_address',
-                message: 'Seleziona una via tra quelle suggerite.'
+        if(checkAddress.value == false){
+            console.log(checkAddress.value)
+
+            if(!inputLat.value[indexInputLatLon] && !inputLon.value[indexInputLatLon]) {
+                // console.log(indexLatLon.innerHTML)
+                let obj = {
+                    field: 'complete_address',
+                    message: 'Seleziona una via tra quelle suggerite.'
+                }
+                errors.push(obj);
             }
-            errors.push(obj);
         }
 
         
@@ -284,3 +288,27 @@ formsCreate.forEach( formCreate => {
         }
     })
 })
+
+const oldImage = document.querySelectorAll('.current-image')
+
+oldImage.forEach((image, i)=>{
+    image.addEventListener('click', function(){
+
+        const clickOnImage = document.querySelectorAll('.click-on-image')
+
+        clickOnImage[i].classList.remove('d-none')
+    })
+})
+
+// Pseudocodice
+
+/*
+
+Se si accede al controller per la edit -> variabile edit = true
+Se edit = true al submit non chiedere di selezionare la via suggerita
+Al keyup su campo input via edit = false
+se edit = false chiedi di selezionare la via suggerita 
+
+*/
+
+

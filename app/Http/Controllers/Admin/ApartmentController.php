@@ -131,10 +131,13 @@ class ApartmentController extends Controller
             return abort(401);
         }
 
+        
+        $checkAddress = true;
+
         $services = Service::orderBy('name', 'asc')->get();
         $user = User::all();
         
-        return view('admin.apartments.edit', compact('apartment','services','user'));
+        return view('admin.apartments.edit', compact('apartment','services','user', 'checkAddress'));
     }
 
     public function update(Request $request, Apartment $apartment){
@@ -146,24 +149,17 @@ class ApartmentController extends Controller
 
         $users = User::all()->pluck('id');
 
-
         $request->validate([
             'title_apartment'=>'required|min:5|max:250|string',
             'rooms'=>'required|min:1|numeric',
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:5|numeric',
-            'img_apartment' => 'required|image|max:2048',
+            'img_apartment' => 'image|max:2048',
             'description'=>'nullable|string',
             'services'=> 'exists:services:id'
             
         ]);
-
-
-       
-
-
-        // dd($request->all());
 
         $form_data = $request->all();
 
@@ -181,7 +177,6 @@ class ApartmentController extends Controller
 
         }
 
-        
         $apartment->update($form_data);
         
         if($request->has('service')){
@@ -189,8 +184,6 @@ class ApartmentController extends Controller
         }else{
             $apartment->services()->detach();
         }
-
-        
 
         return to_route('admin.apartments.show', $apartment);
     }
