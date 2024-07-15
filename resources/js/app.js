@@ -151,9 +151,20 @@ formsCreate.forEach( formCreate => {
 
         e.preventDefault()
         
-        if(checkAddress.value == false){
-            console.log(checkAddress.value)
-
+        if(checkAddress){
+            if(checkAddress.value == false){
+                console.log(checkAddress.value)
+    
+                if(!inputLat.value[indexInputLatLon] && !inputLon.value[indexInputLatLon]) {
+                    // console.log(indexLatLon.innerHTML)
+                    let obj = {
+                        field: 'complete_address',
+                        message: 'Seleziona una via tra quelle suggerite.'
+                    }
+                    errors.push(obj);
+                }
+            }
+        }else{
             if(!inputLat.value[indexInputLatLon] && !inputLon.value[indexInputLatLon]) {
                 // console.log(indexLatLon.innerHTML)
                 let obj = {
@@ -163,6 +174,7 @@ formsCreate.forEach( formCreate => {
                 errors.push(obj);
             }
         }
+        
 
         
         // TITOLO DELL'ÁPPARTAMENTO
