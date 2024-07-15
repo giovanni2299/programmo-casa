@@ -54,6 +54,9 @@ class ApartmentController extends Controller
         $max_lat = $content['max_lat'];
         $min_lon = $content['min_lon'];
         $max_lon = $content['max_lon'];
+
+        $rooms = $content['roomsNumber'];
+        $beds = $content['bedsNumber'];
         
         $serviceArray = $content['activeFilters'];
 
@@ -63,6 +66,8 @@ class ApartmentController extends Controller
             ->where('latitude', '<', $max_lat )
             ->where('longitude', '<', $max_lon )
             ->where('longitude', '>', $min_lon )
+            ->where('rooms', '>=', $rooms)
+            ->where('beds', '>=', $beds)
             -> whereHas('services', function ($query) use ($serviceArray) {
             $query->whereIn('id', $serviceArray);
         }, '=', count($serviceArray))->get();
