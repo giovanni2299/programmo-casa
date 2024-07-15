@@ -3,6 +3,10 @@
 @section('content')
     <div class="container">
         <h1 class="my-3">Modifica un appartamento</h1>
+        
+        <!-- @isset($checkAddress) -->
+        <input type="hidden" id="checkAddress" value="{{$checkAddress}}"></input>
+        <!-- @endisset -->
     </div>
     <div class="container">
         <form class="form-create-apartment" action="{{ route('admin.apartments.update',$apartment) }}" method="POST" enctype="multipart/form-data">

@@ -131,10 +131,13 @@ class ApartmentController extends Controller
             return abort(401);
         }
 
+        
+        $checkAddress = true;
+
         $services = Service::orderBy('name', 'asc')->get();
         $user = User::all();
         
-        return view('admin.apartments.edit', compact('apartment','services','user'));
+        return view('admin.apartments.edit', compact('apartment','services','user', 'checkAddress'));
     }
 
     public function update(Request $request, Apartment $apartment){
@@ -145,7 +148,6 @@ class ApartmentController extends Controller
         // $apartment = Apartment::find($id);
 
         $users = User::all()->pluck('id');
-
 
         $request->validate([
             'title_apartment'=>'required|min:5|max:250|string',
