@@ -284,3 +284,14 @@ formsCreate.forEach( formCreate => {
         }
     })
 })
+
+const oldImage = document.querySelectorAll('.current-image')
+
+oldImage.forEach((image, i)=>{
+    image.addEventListener('click', function(){
+
+        const clickOnImage = document.querySelectorAll('.click-on-image')
+
+            clickOnImage[i].classList.remove('d-none')
+    })
+})

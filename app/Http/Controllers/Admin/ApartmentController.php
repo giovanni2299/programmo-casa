@@ -153,17 +153,11 @@ class ApartmentController extends Controller
             'beds'=>'required|min:1|numeric',
             'bathrooms'=>'required|min:1|numeric',
             'sqr_meters'=>'required|min:5|numeric',
-            'img_apartment' => 'required|image|max:2048',
+            'img_apartment' => 'image|max:2048',
             'description'=>'nullable|string',
             'services'=> 'exists:services:id'
             
         ]);
-
-
-       
-
-
-        // dd($request->all());
 
         $form_data = $request->all();
 
@@ -181,7 +175,6 @@ class ApartmentController extends Controller
 
         }
 
-        
         $apartment->update($form_data);
         
         if($request->has('service')){
@@ -189,8 +182,6 @@ class ApartmentController extends Controller
         }else{
             $apartment->services()->detach();
         }
-
-        
 
         return to_route('admin.apartments.show', $apartment);
     }
