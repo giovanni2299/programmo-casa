@@ -61,9 +61,12 @@ city.addEventListener('input', function(){
 })
 
 city.addEventListener('keyup', function (){
-    checkAddress.value = 0
+    if(checkAddress){
 
-    console.log(checkAddress.value)
+        checkAddress.value = 0
+    }
+
+    // console.log(checkAddress.value)
 
     if (cancelToken) {
         cancelToken.cancel();
