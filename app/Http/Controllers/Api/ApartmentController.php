@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 class ApartmentController extends Controller
 {
     public function index(){
-        $apartments = Apartment::with('user','sponsorships', 'services', 'views', 'messages')->paginate(15);
+        $apartments = Apartment::with('user','sponsorships', 'services', 'views', 'messages')->paginate(12);
 
         return response()->json([
             'success' => true,
