@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id="registration-form" class="registration-form" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="mb-4 row">
@@ -60,6 +60,9 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="div">
+                            <p class="text-danger" id="passwordError"></p>
+                        </div>
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -74,4 +77,33 @@
         </div>
     </div>
 </div>
+<script>
+    const registrationForm = document.getElementById('registration-form');
+
+
+    registrationForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        console.log('Hai cliccato');
+
+        let password = document.getElementById('password');
+            let passwordConfirmation = document.getElementById('password-confirm');
+            let passwordErrorField = document.getElementById('passwordError');
+            // let passwordError = "";
+            e.preventDefault();
+    
+            if(password.value.length < 8 ){
+                passwordErrorField.innerText = 'Le password devono contenere almeno 8 caratteri.';
+                console.log('password corta')
+            }else if(password.value !== passwordConfirmation.value){
+                // passwordError = "Le due password non coincidono.";
+                passwordErrorField.innerText = 'Le due password non coincidono.';
+                console.log('password bloccata')
+            }else{
+                registrationForm.submit();
+                passwordError = "";
+                passwordErrorField.innerText = passwordError;
+                console.log('password permessa')
+            }
+    })
+</script> 
 @endsection
