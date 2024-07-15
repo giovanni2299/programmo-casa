@@ -79,9 +79,9 @@ class ApartmentSeeder extends Seeder
          '9.187291'];
 
         //creo un array con i nomi degli apartamenti
-        $title_apartment=['Appartamanto con piscina',
+        $title_apartment=['Appartamento con piscina',
         'Appartamento vista mare',
-        'Appartamento gallegiante',
+        'Appartamento galleggiante',
         'Appartamento in montagna',
         'Appartamento moderno',
         'Appartamento in centro',

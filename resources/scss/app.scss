@@ -2,3 +2,7 @@
 @import'partials/reset';
 @import 'partials/apartments';
 @import'partials/validation';
+
+.service-name {
+    text-transform: capitalize;
+};

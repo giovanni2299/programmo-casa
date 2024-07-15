@@ -124,7 +124,7 @@
                         @foreach ($services as $service)
                             <div class="form-check col-lg-3 col-md-6 col-sm-12 mb-3">
                                 <input class="form-check-input" @checked(in_array($service->id, old('services', $apartment->services->pluck('id')->all() ))) type="checkbox" name='service[]' id="service-{{ $service->id }}" value="{{ $service->id }}">
-                                <label class="form-check-lable" for="weapon-{{ $service->id }}">
+                                <label class="form-check-lable service-name" for="weapon-{{ $service->id }}">
                                 {{ $service->name }}
                                 </label>
 
