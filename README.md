@@ -8,7 +8,7 @@ Il gruppo è composto da:
 - Alessandro Casalaspro
 - Christian Corelli
 - Giovanni Sorrentino
-- Rocco Cerri
+- Rocco Cerro
 
 
 
