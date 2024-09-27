@@ -331,9 +331,9 @@ class ApartmentSeeder extends Seeder
             // popoliamo la colonna della descrizione 
             $new_apartment->description = $faker->randomElement($apartment_description);
 
-            $new_apartment->complete_address = $response['results'][0]['address']['freeformAddress'];
-            $new_apartment->latitude = $response['results'][0]['position']['lat'];
-            $new_apartment->longitude = $response['results'][0]['position']['lon'];
+            // $new_apartment->complete_address = $response['results'][0]['address']['freeformAddress'];
+            // $new_apartment->latitude = $response['results'][0]['position']['lat'];
+            // $new_apartment->longitude = $response['results'][0]['position']['lon'];
             
             $new_apartment->visible = $faker->boolean();
             // salviamo i dati

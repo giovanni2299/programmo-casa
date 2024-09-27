@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('latitude',15)->nullable();
             $table->string('longitude',15)->nullable();
-            $table->string('complete_address');
+            $table->string('complete_address')->nullable();
             $table->tinyInteger('visible')->default(0);
             // i use the Scheme helper method to add the 'deleted_at' column
             $table->softDeletes();
